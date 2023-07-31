@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans&display=swap');
+
+:root{
+    --bgColor: #1FC4BA;
+    --firstColor: #CAFCF9;
+    --letterColor: #634E4E;
+    --btnOrder: #D9D9D9;
+    --bgOrder: #000000;
+    --btnBack: #A9FFFA;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Sofia Sans', sans-serif;
+}
+
+body{
+    background-color: var(--bgColor);
+}

@@ -1,0 +1,117 @@
+.conteiner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+figure img {
+    width: 15em;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding-bottom: 2.5rem;
+    border-radius: 22px;
+    width: 15em;
+    background-color: var(--firstColor);
+    margin-top: 3em;
+}
+
+.inputs-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    position: relative;
+}
+
+.inputs-info {
+    border-radius: 5px;
+    flex-direction: column;
+    border: none;
+    margin-top: 2em;
+    width: 15em;
+    height: 2em;
+    text-align: center;
+    background-color: var(--bgColor);
+}
+
+.submit {
+    border-radius: 5px;
+    border: none;
+    margin-top: 2em;
+    width: 15em;
+    height: 2em;
+    text-align: center;
+    background-color: var(--bgColor);
+    text-align: center;
+    color: var(--letterColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--letterColor);
+}
+
+@media screen and (min-width: 768px) {
+    .logo {
+        width: 20em;
+        margin-left: 2em;
+    }
+
+    .conteiner {
+        position: fixed;
+        top: 1;
+        left: 0;
+        width: 100%;
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .login-form {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding-bottom: 2.5rem;
+        border-radius: 22px;
+        width: 24em;
+        background-color: var(--firstColor);
+        margin-top: 3em;
+        height: 22em;
+    }
+
+    figure {
+        display: flex;
+        justify-content: center;
+        margin-top: 3em;
+    }
+
+    figure img {
+        width: 20em;
+    }
+
+    .inputs-info {
+        height: 3em;
+        font-size: 1em;
+
+    }
+
+    .subtitle {
+        margin-top: 2em;
+    }
+
+    .submit {
+        height: 3em;
+        font-size: 1em;
+
+    }
+}
