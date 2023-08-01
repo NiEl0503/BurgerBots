@@ -1,6 +1,12 @@
 footer {
     background-color: var(--firstColor);
+    margin-top: 41.8em;
+    height: 40px;
+    text-align: center;
 }
-rodape {
-    font-size: 2em;
+
+footer p {
+    font-size: 1.2em;
+    padding-top: .4em;
+    color: var(--letterColor);
 }
