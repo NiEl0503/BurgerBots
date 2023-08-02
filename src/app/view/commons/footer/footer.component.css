@@ -1,8 +1,12 @@
 footer {
     background-color: var(--firstColor);
-    margin-top: 41.8em;
     height: 40px;
     text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
 }
 
 footer p {
@@ -10,3 +14,14 @@ footer p {
     padding-top: .4em;
     color: var(--letterColor);
 }
+
+@media screen and (min-width: 768px) {
+footer {
+    margin-top: 53.4em;
+} 
+}
+@media screen and (min-width: 1200px) {
+    footer {
+        margin-top: 53.2em;
+    } 
+    }
