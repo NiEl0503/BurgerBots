@@ -8,10 +8,11 @@
       <form class='login-form'>
         <h2 class='subtitle'>BurguerBots</h2>
         <div class='inputs-container'>
-          <input type='text' class='inputs-info' placeholder='E-mail' id='email' />
-          <input type='password' class='inputs-info' placeholder='Senha' id='senha' />
+          <input type='text' class='inputs-info' placeholder='E-mail' name='email' [(ngModel)]="email"/>
+          <input type='password' class='inputs-info' placeholder='Senha' name='senha' [(ngModel)]="senha"/>
           <nav>
             <button type='button' id='login-button' class='submit' (click)='onLoginButtonClick()'>Entrar</button>
+            <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
           </nav>
         </div>
       </form>

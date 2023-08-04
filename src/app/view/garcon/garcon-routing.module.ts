@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GarconModule } from './garcon.module';
 import { GarconComponent } from './garcon.component';
 
 const routes: Routes = [

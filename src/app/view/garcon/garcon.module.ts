@@ -12,6 +12,9 @@ import { GarconComponent } from './garcon.component';
   imports: [
     CommonModule,
     GarconRoutingModule
-  ]
+  ],
+  exports: [
+    GarconComponent
+  ],
 })
 export class GarconModule { }

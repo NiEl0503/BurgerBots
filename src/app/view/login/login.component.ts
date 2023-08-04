@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginService } from 'src/app/services/login/login.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  email: string = ''
+  senha: string = ''
+  private loginSubscription: Subscription | undefined;
+  public errorMessage: string | undefined;
 
   constructor(
     private readonly service: LoginService,
@@ -15,22 +20,33 @@ export class LoginComponent {
   ) { }
 
   onLoginButtonClick() {
-    const email = (document.getElementById('email') as HTMLInputElement).value;
-    const senha = (document.getElementById('senha') as HTMLInputElement).value;
-
-    this.service.login(email, senha).subscribe(
+    this.service.login(this.email, this.senha).subscribe(
       (response: any) => {
-        console.log(response);
-        // Aquí, si el inicio de sesión es exitoso, redireccionamos al usuario a otra página (por ejemplo, 'home').
-        if (response && response.success) {
-          this.router.navigate(['/home']);
+        if (response.user && response.user.role) {
+          switch (response.user.role) {
+            case 'cozinha':
+              this.router.navigate(['/cozi']);
+              break;
+            case 'admin':
+              this.router.navigate(['/admin']);
+              break;
+            case 'garcom':
+              this.router.navigate(['/garcom']);
+              break;
+            default:
+              console.error('Função de usuário inválida:', response.user.role);
+          }
         }
       },
       (error: any) => {
-        console.error('Error en inicio de sesión:', error);
-        // Aquí puedes mostrar un mensaje de error al usuario si el inicio de sesión falla.
+        console.error('falha no login:', error);
+
+        if (error.status === 401) {
+          this.errorMessage = 'Senha incorreta';
+        } else (error.status === 404)
+          this.errorMessage = 'usuário não encontrado';
+        
       }
     );
   }
-
 }
