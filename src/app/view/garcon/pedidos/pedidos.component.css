@@ -1,0 +1,23 @@
+.conteiner-products__prontos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+      width: 80%;
+    background-color: var(--bgColor);
+    }
+  
+    .conteiner-products__entregues {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+        width: 80%;
+      background-color: var(--bgColor);
+      margin-bottom: 1em;
+      }
+  
+      ul li {
+        background-color: var(--firstColor);
+        list-style: none;
+       text-align: center;
+      }
+      

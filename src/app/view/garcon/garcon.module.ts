@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { GarconRoutingModule } from './garcon-routing.module';
 import { GarconComponent } from './garcon.component';
 import { ProductsComponent } from './products/products.component';
+import { PedidosComponent } from './pedidos/pedidos.component';
 
 
 @NgModule({
   declarations: [
     GarconComponent,
-    ProductsComponent
+    ProductsComponent,
+    PedidosComponent
   ],
   imports: [
     CommonModule,
