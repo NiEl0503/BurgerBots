@@ -1,0 +1,102 @@
+.conteiner-products,
+.conteiner-pedidos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em;
+  background-color: var(--firstColor);
+  min-height: 30vh;
+}
+
+.conteiner-products__breakfast,
+.conteiner-products__mainMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 80%;
+  background-color: var(--bgColor);
+  margin-top: 1em;
+}
+
+.breakfast,
+.mainMenu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 5px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 0.5em;
+}
+
+.breakfast img,
+.mainMenu img{
+  width: 70px;
+  height: 70px;
+  margin: 0 5px;
+}
+
+.breakfast p,
+.mainMenu p {
+  margin-top: 5px;
+}
+
+button img {
+  height: 30px;
+  width: 30px;
+}
+
+.conteiner-products__resumoPedido {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  background-color: var(--bgColor);
+  margin-top: 1em;
+  padding: 10px;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.conteiner-products__all {
+  width: 100%;
+}
+
+.conteiner-products__all ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.conteiner-products__all ul li p,
+.conteiner-products__all ul li button {
+  margin-right: 10px;
+}
+
+.conteiner-products__resumoPedido button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.conteiner-products__resumoPedido img {
+  width: 20px;
+  height: 20px;
+
+}
+
+.total {
+  background: var(--firstColor);
+  width: 70%;
+  text-align: center;
+}
+
+.enviar {
+  background: var(--firstColor);
+  color: var(--letterColor);
+  margin-top: 1em;
+  border-radius: 5px;
+  width: 60%;
+  text-align: center;
+}
