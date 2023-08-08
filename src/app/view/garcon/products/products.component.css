@@ -1,5 +1,11 @@
-.conteiner-products,
-.conteiner-pedidos {
+body{
+  background-color: var(--bgColor);
+  width: 80%;
+  margin-left: 30px;
+  color: var(--letterColor);
+}
+
+.conteiner-products {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,12 +67,17 @@ button img {
 
 .conteiner-products__all {
   width: 100%;
+  display: flex;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  justify-content: space-around;
 }
 
 .conteiner-products__all ul li {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .conteiner-products__all ul li p,
@@ -78,6 +89,8 @@ button img {
   background: none;
   border: none;
   cursor: pointer;
+  font-weight: bold;
+  color: var(--letterColor);
 }
 
 .conteiner-products__resumoPedido img {
@@ -88,7 +101,7 @@ button img {
 
 .total {
   background: var(--firstColor);
-  width: 70%;
+  width: 80%;
   text-align: center;
 }
 

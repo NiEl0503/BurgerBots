@@ -1,3 +1,20 @@
+body {
+  background-color: var(--bgColor);
+  width: 80%;
+  margin-left: 30px;
+  color: var(--letterColor);
+}
+
+.conteiner-pedidos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em;
+  background-color: var(--firstColor);
+  min-height: 30vh;
+}
+
 .conteiner-products__prontos {
     display: flex;
     flex-direction: column;
@@ -14,10 +31,20 @@
       background-color: var(--bgColor);
       margin-bottom: 1em;
       }
+      .entregues {
+        margin-top: 2em;
+      }
   
+      .pedidos {
+        background-color: var(--bgColor);
+        border: 2px solid var(--bgColor);
+      }
+
       ul li {
         background-color: var(--firstColor);
         list-style: none;
        text-align: center;
+       margin-top: .5em;
+       margin-bottom: .5em;
       }
       

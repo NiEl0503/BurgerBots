@@ -32,6 +32,11 @@ body {
     margin-bottom: 10px;
   }
   
+  .conteiner-buttons button {
+    color: var(--letterColor);
+    font-weight: bold;
+  }
+  
   .inputs-info {
     flex: 1;
     margin: 0 5px;

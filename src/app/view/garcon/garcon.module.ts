@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { GarconRoutingModule } from './garcon-routing.module';
 import { GarconComponent } from './garcon.component';
-import { ProductsComponent } from './products/products.component';
-import { PedidosComponent } from './pedidos/pedidos.component';
+import { ProductsComponent } from '../garcon/products/products.component';
+import { PedidosComponent } from '../garcon/pedidos/pedidos.component';
 
 
 @NgModule({
