@@ -1,8 +1,11 @@
-body{
+body {
   background-color: var(--bgColor);
   width: 80%;
-  margin-left: 30px;
   color: var(--letterColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 30px;
 }
 
 .conteiner-products {
@@ -20,14 +23,15 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  width: 80%;
+  align-items: center;
+  width: 85%;
   background-color: var(--bgColor);
   margin-top: 1em;
+
 }
 
 .breakfast,
-.mainMenu{
+.mainMenu {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,7 +42,7 @@ body{
 }
 
 .breakfast img,
-.mainMenu img{
+.mainMenu img {
   width: 70px;
   height: 70px;
   margin: 0 5px;
@@ -112,4 +116,49 @@ button img {
   border-radius: 5px;
   width: 60%;
   text-align: center;
+}
+
+@media only screen and (min-width: 420px) and (max-width: 767px) {
+  .conteiner-products {
+    width: 90%;
+  }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .conteiner-products {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 70px;
+  }
+
+  .conteiner-products__breakfast,
+  .conteiner-products__mainMenu {
+    width: 90%;
+  }
+
+  .conteiner-products__resumoPedido {
+    width: 87%;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .conteiner-products {
+    width: 88%;
+    margin-left: 8em;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .conteiner-pedidos {
+    width: 88%;
+    margin-left: 8em;
+  }
+
+  .conteiner-products__resumoPedido {
+    width: 83%;
+  }
 }
