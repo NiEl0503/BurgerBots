@@ -2,22 +2,26 @@
     <section class="conteiner-products">
         <div class="conteiner-products__breakfast">
             <div class="breakfast">
-                <img src="./assets/caf.png" alt="">
-                <p>Café americano R$5</p>
-                <img src="./assets/juice.png" alt="">
-                <p>Suco de fruta natural R$7</p>
+                <ng-container *ngFor="let product of products">
+                    <div *ngIf="product.type === 'Café da Manhã'">
+                        <img [src]="product.image" alt="{{ product.name }}">
+                        <p>{{ product.name }} R${{ product.price }}</p>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    
+        <div class="conteiner-products__mainMenu">
+            <div class="mainMenu">
+                <ng-container *ngFor="let product of products">
+                    <div *ngIf="product.type === 'Menu Principal'">
+                        <img [src]="product.image" alt="{{ product.name }}">
+                        <p>{{ product.name }} R${{ product.price }}</p>
+                    </div>
+                </ng-container>
             </div>
         </div>
 
-        <div class="conteiner-products__mainMenu">
-            <div class="mainMenu">
-                <img src="./assets/bur.png" alt="">
-                <p>Hambúrguer simples
-                    R$10</p>
-                <img src="./assets/fried.png" alt="">
-                <p>Batata frita R$5 </p>
-            </div>
-        </div>
         <div class="conteiner-products__resumoPedido">
             <h4>Resumo do Pedido</h4>
             <div class="conteiner-products__all">
