@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product/product.service';
-import { HttpHeaders } from '@angular/common/http';
+import { LocalStorageService } from '../../../services/localStorage/local-storage.service';
+
 
 @Component({
   selector: 'app-products',
@@ -11,14 +12,13 @@ export class ProductsComponent implements OnInit {
 
   products: any[] = [];
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
-    const token = localStorage.getItem('token');
+    const accessToken = this.localStorageService.getItem('accessToken');
     
-    if (token) {
-      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      this.productService.getProducts(headers).subscribe(data => {
+    if (accessToken) {
+      this.productService.getProducts().subscribe(data => {
         this.products = data;
       });
     }

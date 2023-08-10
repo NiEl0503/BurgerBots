@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LoginService } from 'src/app/services/login/login.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { LocalStorageService } from '../../services/localStorage/local-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -16,13 +17,19 @@ export class LoginComponent {
 
   constructor(
     private readonly service: LoginService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly localStorageService: LocalStorageService
   ) { }
 
   onLoginButtonClick() {
     this.service.login(this.email, this.senha).subscribe(
       (response: any) => {
-        if (response.user && response.user.role) {
+        console.log(response)
+        // if (response.user && response.user.role) {
+          console.log('accessToken:', response.accessToken);
+        if (response.accessToken && response.user && response.user.role) {
+          this.localStorageService.setItem('user_data', response.user);
+          this.localStorageService.setItem('accessToken', response.accessToken);
           switch (response.user.role) {
             case 'cozinha':
               this.router.navigate(['/cozi']);
