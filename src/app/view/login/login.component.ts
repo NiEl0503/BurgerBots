@@ -25,7 +25,6 @@ export class LoginComponent {
     this.service.login(this.email, this.senha).subscribe(
       (response: any) => {
         console.log(response)
-        // if (response.user && response.user.role) {
           console.log('accessToken:', response.accessToken);
         if (response.accessToken && response.user && response.user.role) {
           this.localStorageService.setItem('user_data', response.user);
