@@ -49,17 +49,24 @@ body {
        margin-bottom: .5em;
       }
       
-      @media only screen and (min-width: 410px) and (max-width: 767px){
+      @media only screen and (min-width: 450px) and (max-width: 600px){
         .conteiner-pedidos{
-          width: 90%;
-          margin-left: 25px;
+          width: 100%;
+          margin-left: 2px;
+        }
+      }
+
+      @media only screen and (min-width: 600px) and (max-width: 767px){
+        .conteiner-pedidos{
+          width: 75%;
+          margin-left: 56px;
         }
       }
       
       @media only screen and (min-width: 768px) and (max-width: 1024px) {
         .conteiner-pedidos{
           display: flex;
-          width: 91%;
+          width: 90%;
           flex-direction: column;
           justify-content: center;
           align-items: center;
@@ -69,21 +76,22 @@ body {
 
       @media only screen and (min-width: 1025px) {
         .conteiner-pedidos{
-         width: 88%;
+         width: 84%;
          margin-left: 8em;
         }
       }
 
       @media only screen and (min-width: 1400px) {
         .conteiner-pedidos{
-         width: 88%;
-         margin-left: 8em;
+         width: 79%;
+         margin-left: 15em;
         }
       }
 
       @media only screen and (min-width: 1600px) {
         .conteiner-pedidos{
-         width: 88%;
-         margin-left: 9em;
+         width: 84.5%;
+         margin-left: 15em;
+         
         }
       }

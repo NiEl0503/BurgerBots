@@ -32,7 +32,8 @@ body {
 
 .breakfast,
 .mainMenu {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
   margin: 10px 5px;
@@ -45,7 +46,9 @@ body {
 .mainMenu img {
   width: 70px;
   height: 70px;
-  margin: 0 5px;
+  margin: 0 auto;
+  margin-left: 10px;
+  max-width: 100%
 }
 
 .breakfast p,
@@ -118,12 +121,12 @@ button img {
   text-align: center;
 }
 
-@media only screen and (min-width: 420px) and (max-width: 767px) {
-  .conteiner-products {
-    width: 90%;
+@media only screen and (max-width: 767px) {
+  .breakfast,
+  .mainMenu {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
-
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .conteiner-products {
@@ -139,6 +142,10 @@ button img {
   .conteiner-products__mainMenu {
     width: 90%;
   }
+  .breakfast,
+  .mainMenu {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
   .conteiner-products__resumoPedido {
     width: 87%;
@@ -150,15 +157,24 @@ button img {
     width: 88%;
     margin-left: 8em;
   }
+  .breakfast,
+  .mainMenu {
+    grid-template-columns: repeat(6, 1fr);
+}
 }
 
 @media only screen and (min-width: 1400px) {
-  .conteiner-pedidos {
+  .conteiner-products {
     width: 88%;
-    margin-left: 8em;
+    margin-left: 15em;
   }
 
   .conteiner-products__resumoPedido {
     width: 83%;
   }
+
+  .breakfast p,
+.mainMenu p {
+  font-size: 2em;
+}
 }
