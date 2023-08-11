@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product/product.service';
 import { HttpHeaders } from '@angular/common/http';
 import { LocalStorageService } from '../../../services/localStorage/local-storage.service';
-import { Router } from '@angular/router';
-
+// import { Router } from '@angular/router';
+import { ProductsCommunicationService } from '../../../services/products-communication/products-communication.service'
 
 @Component({
   selector: 'app-products',
@@ -11,12 +11,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
+  showBreakfastContainer = false;
+  showMainMenuContainer = false;
 
   products: any[] = [];
 
-  constructor(private productService: ProductService,
+  constructor(
+    private productService: ProductService,
     private localStorageService: LocalStorageService,
-    // private readonly router: Router
+    // private readonly router: Router,
+    private productsCommunicationService: ProductsCommunicationService
   ) { }
 
   ngOnInit() {
@@ -29,6 +33,14 @@ export class ProductsComponent implements OnInit {
       });
     // } else {
     //   this.router.navigate(['login'])
-     }
+    }
+
+    this.productsCommunicationService.showBreakfast$.subscribe(value => {
+      this.showBreakfastContainer = value;
+    });
+
+    this.productsCommunicationService.showMainMenu$.subscribe(value => {
+      this.showMainMenuContainer = value;
+    });
   }
 }

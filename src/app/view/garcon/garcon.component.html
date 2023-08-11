@@ -2,11 +2,19 @@
     <section class="conteiner">
         <div class='conteiner-inputs'>
             <input type='text' class='inputs-info' placeholder='Nome' id='nome' />
-            <input type='text' class='inputs-info' placeholder='Mesa' id='mesa' />
+            <select id="typeyear" class="inputs-info">
+                <option value="Mesa" disabled selected style="display: none">Mesa</option>
+                <option class="options" value="Mesa">Mesa</option>
+                <option class="options" value="1">1</option>
+                <option class="options" value="2">2</option>
+                <option class="options" value="3">3</option>
+                <option class="options" value="4">4</option>
+                <option class="options" value="5">5</option>
+            </select>
         </div>
         <div class="conteiner-buttons">
-            <button type='button' id='breakfast-button' class='submit' href=''>Café da Manhã</button>
-            <button type='button' id='menu-button' class='submit' href=''>Menu Principal</button>
+            <button type="button" class="submit" (click)="showBreakfast()">Café da Manhã</button>
+<button type="button" class="submit" (click)="showMainMenu()">Menu Principal</button>
         </div>
     </section>
 </body>
