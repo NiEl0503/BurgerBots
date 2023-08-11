@@ -1,6 +1,6 @@
 <body>
     <section class="conteiner-products">
-        <div class="conteiner-products__breakfast" id="breakfast-container">
+        <div class="conteiner-products__breakfast" id="breakfast-container" *ngIf="showBreakfastContainer">
             <div class="breakfast">
                 <ng-container *ngFor="let product of products">
                     <div *ngIf="product.type === 'Café da Manhã'">
@@ -11,7 +11,7 @@
             </div>
         </div>
     
-        <div class="conteiner-products__mainMenu" id="mainMenu-container">
+        <div class="conteiner-products__mainMenu" id="mainMenu-container" *ngIf="showMainMenuContainer">
             <div class="mainMenu">
                 <ng-container *ngFor="let product of products">
                     <div *ngIf="product.type === 'Menu Principal'">
