@@ -1,44 +1,36 @@
 <body>
     <section class="conteiner-products">
-        <div class="conteiner-products__breakfast" id="breakfast-container" *ngIf="showBreakfastContainer">
+        <div class="conteiner-products__breakfast" *ngIf="showBreakfastContainer">
             <div class="breakfast">
                 <ng-container *ngFor="let product of products">
                     <div *ngIf="product.type === 'Café da Manhã'">
-                        <img [src]="product.image" alt="{{ product.name }}">
-                        <p>{{ product.name }} R${{ product.price }}</p>
-                    </div>
-                </ng-container>
-            </div>
-        </div>
-    
-        <div class="conteiner-products__mainMenu" id="mainMenu-container" *ngIf="showMainMenuContainer">
-            <div class="mainMenu">
-                <ng-container *ngFor="let product of products">
-                    <div *ngIf="product.type === 'Menu Principal'">
-                        <img [src]="product.image" alt="{{ product.name }}">
+                        <img [src]="product.image" alt="{{ product.name }}" (click)="selectProduct(product)">
                         <p>{{ product.name }} R${{ product.price }}</p>
                     </div>
                 </ng-container>
             </div>
         </div>
 
+        <div class="conteiner-products__mainMenu" *ngIf="showMainMenuContainer">
+            <div class="mainMenu">
+                <ng-container *ngFor="let product of products">
+                    <div *ngIf="product.type === 'Menu Principal'">
+                        <img [src]="product.image" alt="{{ product.name }}" (click)="selectProduct(product)">
+                        <p>{{ product.name }} R${{ product.price }}</p>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
         <div class="conteiner-products__resumoPedido">
             <h4>Resumo do Pedido</h4>
             <div class="conteiner-products__all">
                 <ul>
-                    <li>
-                        <p class="contador" id="contador-products">2</p>
-                        <p class="products">Café americano R$10</p>
-                        <button type='button' class='delete' id='btn-delete'>
+                    <li *ngFor="let product of selectedProducts">
+                        <p class="contador">{{ product.quantity }}</p>
+                        <p class="products">{{ product.name }} R${{ product.price }}</p>
+                        <button type='button' class='delete' (click)="removeSelectedProduct(product)">
                             <img src='./assets/lixo.png' alt='delete image' class='icons-delete'>
-                        </button>
-                    </li>
-                    <li>
-                        <p class="contador" id="contador-products1">1</p>
-                        <p class="products">Sanduíche R$10</p>
-                        <button type='button' class='delete' id='btn-delete'>
-                            <img src='./assets/lixo.png' alt='delete image' class='icons-delete'>
-                        </button>
+                        </button>                    
                     </li>
                 </ul>
             </div>

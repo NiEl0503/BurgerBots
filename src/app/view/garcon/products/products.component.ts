@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product/product.service';
 import { HttpHeaders } from '@angular/common/http';
 import { LocalStorageService } from '../../../services/localStorage/local-storage.service';
-// import { Router } from '@angular/router';
-import { ProductsCommunicationService } from '../../../services/products-communication/products-communication.service'
+import { ProductsCommunicationService } from '../../../services/products-communication/products-communication.service';
 
 @Component({
   selector: 'app-products',
@@ -13,13 +12,13 @@ import { ProductsCommunicationService } from '../../../services/products-communi
 export class ProductsComponent implements OnInit {
   showBreakfastContainer = false;
   showMainMenuContainer = false;
+  selectedProducts: any[] = [];
 
   products: any[] = [];
 
   constructor(
     private productService: ProductService,
     private localStorageService: LocalStorageService,
-    // private readonly router: Router,
     private productsCommunicationService: ProductsCommunicationService
   ) { }
 
@@ -31,8 +30,6 @@ export class ProductsComponent implements OnInit {
         this.products = data;
         console.log(this.products);
       });
-    // } else {
-    //   this.router.navigate(['login'])
     }
 
     this.productsCommunicationService.showBreakfast$.subscribe(value => {
@@ -42,5 +39,17 @@ export class ProductsComponent implements OnInit {
     this.productsCommunicationService.showMainMenu$.subscribe(value => {
       this.showMainMenuContainer = value;
     });
+
+    this.productsCommunicationService.selectedProductsSubject.subscribe(products => {
+      this.selectedProducts = products;
+    });
+  }
+
+  selectProduct(product: any) {
+    this.productsCommunicationService.addSelectedProduct(product);
+  }
+
+  removeSelectedProduct(product: any) {
+    this.productsCommunicationService.removeSelectedProduct(product);
   }
 }
