@@ -12,7 +12,7 @@ import { ProductsCommunicationService } from '../../../services/products-communi
 export class ProductsComponent implements OnInit {
   showBreakfastContainer = false;
   showMainMenuContainer = false;
-  selectedProducts: any[] = []; // Agregar esta línea
+  selectedProducts: any[] = [];
 
   products: any[] = [];
 
@@ -40,7 +40,7 @@ export class ProductsComponent implements OnInit {
       this.showMainMenuContainer = value;
     });
 
-      this.productsCommunicationService.selectedProductsSubject.subscribe(products => {
+    this.productsCommunicationService.selectedProductsSubject.subscribe(products => {
       this.selectedProducts = products;
     });
   }
@@ -50,5 +50,6 @@ export class ProductsComponent implements OnInit {
   }
 
   removeSelectedProduct(product: any) {
+    this.productsCommunicationService.removeSelectedProduct(product);
   }
 }

@@ -13,7 +13,8 @@ export class ProductsCommunicationService {
 
   private selectedProducts: any[] = [];
   private selectedProductsSource = new BehaviorSubject<any[]>([]);
-  selectedProductsSubject = this.selectedProductsSource.asObservable();
+  selectedProductsSubject: BehaviorSubject<any[]> = this.selectedProductsSource;
+  
 
   constructor() {}
 
@@ -36,4 +37,21 @@ export class ProductsCommunicationService {
 
     this.selectedProductsSource.next(this.selectedProducts);
   }
+
+  removeSelectedProduct(product: any) {
+    const existingProductIndex = this.selectedProducts.findIndex(p => p.id === product.id);
+  
+    if (existingProductIndex !== -1) {
+      const updatedSelectedProducts = [...this.selectedProducts];
+      updatedSelectedProducts[existingProductIndex].quantity--;
+  
+      if (updatedSelectedProducts[existingProductIndex].quantity === 0) {
+        updatedSelectedProducts.splice(existingProductIndex, 1);
+      }
+  
+      this.selectedProducts = updatedSelectedProducts;
+      this.selectedProductsSource.next(updatedSelectedProducts);
+    }
+  }
+  
 }
