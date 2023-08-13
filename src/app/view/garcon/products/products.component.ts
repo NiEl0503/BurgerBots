@@ -40,19 +40,15 @@ export class ProductsComponent implements OnInit {
       this.showMainMenuContainer = value;
     });
 
-    // Suscribirte al BehaviorSubject en el servicio para obtener los productos seleccionados
-    this.productsCommunicationService.selectedProductsSubject.subscribe(products => {
+      this.productsCommunicationService.selectedProductsSubject.subscribe(products => {
       this.selectedProducts = products;
     });
   }
 
   selectProduct(product: any) {
-    // Agregar el producto seleccionado a través del servicio
     this.productsCommunicationService.addSelectedProduct(product);
   }
 
-  // Agregar este método para eliminar un producto seleccionado
   removeSelectedProduct(product: any) {
-    // Lógica para eliminar un producto seleccionado
   }
 }
