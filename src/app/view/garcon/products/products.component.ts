@@ -52,4 +52,15 @@ export class ProductsComponent implements OnInit {
   removeSelectedProduct(product: any) {
     this.productsCommunicationService.removeSelectedProduct(product);
   }
+
+  calculateTotal(): number {
+    let total = 0;
+  
+    for (const product of this.selectedProducts) {
+      total += product.price * product.quantity;
+    }
+  
+    return total;
+  }
+  
 }
