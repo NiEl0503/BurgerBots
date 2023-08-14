@@ -32,7 +32,7 @@ export class ProductsCommunicationService {
       selectedProducts: this.selectedProducts
     };
 
-    this.http.post<any>('http://localhost:4200/cozi', pedido)
+    this.http.post<any>('http://localhost:8080/orders', pedido)
       .subscribe(
         response => {
           console.log('Pedido enviado para a cozinha:', response);
