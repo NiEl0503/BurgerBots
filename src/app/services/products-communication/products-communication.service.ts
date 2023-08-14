@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,33 @@ export class ProductsCommunicationService {
   private selectedProducts: any[] = [];
   private selectedProductsSource = new BehaviorSubject<any[]>([]);
   selectedProductsSubject: BehaviorSubject<any[]> = this.selectedProductsSource;
-  
+  private customerInfo: { name: string, table: string } = { name: '', table: '' };
 
-  constructor() {}
+  setCustomerInfo(name: string, table: string) {
+    this.customerInfo = { name, table };
+  }
+
+  getCustomerInfo() {
+    return this.customerInfo;
+  }
+
+  constructor(private http: HttpClient) { }
+  enviarPedidoACocina() {
+    const pedido = {
+      customerInfo: this.customerInfo,
+      selectedProducts: this.selectedProducts
+    };
+
+    this.http.post<any>('http://localhost:8080/orders', pedido)
+      .subscribe(
+        response => {
+          console.log('Pedido enviado para a cozinha:', response);
+        },
+        error => {
+          console.error('Erro ao enviar o pedido para a cozinha:', error);
+        }
+      );
+  }
 
   setShowBreakfast(value: boolean) {
     this.showBreakfastSource.next(value);
@@ -40,18 +65,18 @@ export class ProductsCommunicationService {
 
   removeSelectedProduct(product: any) {
     const existingProductIndex = this.selectedProducts.findIndex(p => p.id === product.id);
-  
+
     if (existingProductIndex !== -1) {
       const updatedSelectedProducts = [...this.selectedProducts];
       updatedSelectedProducts[existingProductIndex].quantity--;
-  
+
       if (updatedSelectedProducts[existingProductIndex].quantity === 0) {
         updatedSelectedProducts.splice(existingProductIndex, 1);
       }
-  
+
       this.selectedProducts = updatedSelectedProducts;
       this.selectedProductsSource.next(updatedSelectedProducts);
     }
   }
-  
+
 }

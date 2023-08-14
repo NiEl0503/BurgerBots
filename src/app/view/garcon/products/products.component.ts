@@ -10,6 +10,8 @@ import { ProductsCommunicationService } from '../../../services/products-communi
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
+  customerName: string = '';
+  customerTable: string = '';
   showBreakfastContainer = false;
   showMainMenuContainer = false;
   selectedProducts: any[] = [];
@@ -63,4 +65,15 @@ export class ProductsComponent implements OnInit {
     return total;
   }
   
+  enviarPedido() {
+    const selectedProducts = this.selectedProducts;
+
+    this.productsCommunicationService.setCustomerInfo(this.customerName, this.customerTable);
+
+    this.productsCommunicationService.enviarPedidoACocina();
+
+    this.selectedProducts = [];
+    this.customerName = '';
+    this.customerTable = '';
+  }
 }
