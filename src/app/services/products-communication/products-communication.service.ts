@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { LocalStorageService } from '../localStorage/local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsCommunicationService {
+  private readonly ACCESSTOKEN = localStorage.getItem('accessToken');
+  private readonly HEADERS = new HttpHeaders().set('Authorization', `Bearer ${this.ACCESSTOKEN}`);
+  private readonly OPTIONS = { headers: this.HEADERS };
   private showBreakfastSource = new BehaviorSubject<boolean>(false);
   showBreakfast$ = this.showBreakfastSource.asObservable();
 
@@ -25,14 +29,18 @@ export class ProductsCommunicationService {
     return this.customerInfo;
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private readonly localStorageService: LocalStorageService) {
+    const accessToken = this.localStorageService.getItem('accessToken');
+    this.HEADERS = new HttpHeaders().set('Authorization', `Bearer ${accessToken}`);
+    this.OPTIONS = { headers: this.HEADERS };
+   }
   enviarPedidoACocina() {
     const pedido = {
       customerInfo: this.customerInfo,
       selectedProducts: this.selectedProducts
     };
 
-    this.http.post<any>('http://localhost:8080/orders', pedido)
+    this.http.post<any>('http://localhost:8080/orders', pedido,this.OPTIONS)
       .subscribe(
         response => {
           console.log('Pedido enviado para a cozinha:', response);
