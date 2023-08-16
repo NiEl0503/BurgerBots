@@ -12,8 +12,8 @@ import { LocalStorageService } from '../../services/localStorage/local-storage.s
 export class LoginComponent {
   email: string = ''
   senha: string = ''
-  private loginSubscription: Subscription | undefined;
   public errorMessage: string | undefined;
+  subscription: Subscription = new Subscription()
 
   constructor(
     private readonly service: LoginService,
@@ -22,37 +22,9 @@ export class LoginComponent {
   ) { }
 
   onLoginButtonClick() {
-    this.service.login(this.email, this.senha).subscribe(
-      (response: any) => {
-        console.log(response)
-          console.log('accessToken:', response.accessToken);
-        if (response.accessToken && response.user && response.user.role) {
-          this.localStorageService.setItem('user_data', response.user);
-          this.localStorageService.setItem('accessToken', response.accessToken);
-          switch (response.user.role) {
-            case 'cozinha':
-              this.router.navigate(['/cozi']);
-              break;
-            case 'admin':
-              this.router.navigate(['/admin']);
-              break;
-            case 'garcom':
-              this.router.navigate(['/garcom']);
-              break;
-            default:
-              console.error('Função de usuário inválida:', response.user.role);
-          }
-        }
-      },
-      (error: any) => {
-        console.error('falha no login:', error);
-
-        if (error.status === 401) {
-          this.errorMessage = 'Senha incorreta';
-        } else (error.status === 404)
-          this.errorMessage = 'usuário não encontrado';
-        
-      }
-    );
+   // this.service.login(this.email, this.senha)
+   let response = this.service.executeLogin(this.email, this.senha)
+   console.log(response);
+   
   }
 }
