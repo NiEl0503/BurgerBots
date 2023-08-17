@@ -1,10 +1,9 @@
 <header class="logo">
-
     <ng-container *ngIf="isGarconPage()">
-        <img class = "seta" src="../../../../assets/back.png" alt="seta para voltar">
+        <button class="seta" (click)="logout()">
+            <img src="../../../../assets/back.png" alt="seta para voltar">
+        </button>
     </ng-container>
-
     <p class="title">BurguerBots</p>
     <img class= "hamburguer" src="../../../../assets/Logo.png" alt="logotipo de hambúrguer">
-    
 </header>

@@ -17,4 +17,10 @@ export class HeaderComponent implements OnInit {
     const currentUrl = this.router.url;
     return this.router.url.includes('/garcom') || currentUrl.includes('/cozi') || currentUrl.includes('/admin');
   }
+
+  logout(): void {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('user_data');
+    this.router.navigate(['']);
+  }
 }
