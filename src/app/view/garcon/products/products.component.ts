@@ -67,12 +67,13 @@ export class ProductsComponent implements OnInit {
   
   enviarPedido() {
     const selectedProducts = this.selectedProducts;
-
+  
     this.productsCommunicationService.setCustomerInfo(this.customerName, this.customerTable);
-
+  
     this.productsCommunicationService.enviarPedidoACocina();
-
-    this.selectedProducts = [];
+  
+    this.productsCommunicationService.clearSelectedProducts();
+  
     this.customerName = '';
     this.customerTable = '';
   }

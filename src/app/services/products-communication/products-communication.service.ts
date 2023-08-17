@@ -87,4 +87,9 @@ export class ProductsCommunicationService {
     }
   }
 
+  clearSelectedProducts() {
+    this.selectedProducts = [];
+    this.selectedProductsSource.next([]);
+  }
+
 }

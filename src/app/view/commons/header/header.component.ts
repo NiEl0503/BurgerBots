@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  isGarconPage(): boolean {
+  element(): boolean {
     const currentUrl = this.router.url;
     return this.router.url.includes('/garcom') || currentUrl.includes('/cozi') || currentUrl.includes('/admin');
   }
