@@ -38,7 +38,8 @@
                 <p>Total: R${{ calculateTotal() }}</p>
               </div>
               
-              <button class="enviar" type="button" (click)="enviarPedido()">Enviar</button>
+              <button class="enviar" type="button" (click)="enviarPedido()" [disabled]="!atLeastOneProductSelected">Enviar</button>
+
         </div>
     </section>
 </body>
