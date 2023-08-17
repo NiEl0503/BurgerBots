@@ -15,6 +15,7 @@ export class ProductsComponent implements OnInit {
   showBreakfastContainer = false;
   showMainMenuContainer = false;
   selectedProducts: any[] = [];
+  atLeastOneProductSelected: boolean = false;
 
   products: any[] = [];
 
@@ -44,15 +45,18 @@ export class ProductsComponent implements OnInit {
 
     this.productsCommunicationService.selectedProductsSubject.subscribe(products => {
       this.selectedProducts = products;
+      this.checkProductsSelected();
     });
   }
 
   selectProduct(product: any) {
     this.productsCommunicationService.addSelectedProduct(product);
+    this.checkProductsSelected();
   }
-
+  
   removeSelectedProduct(product: any) {
     this.productsCommunicationService.removeSelectedProduct(product);
+    this.checkProductsSelected();
   }
 
   calculateTotal(): number {
@@ -64,17 +68,25 @@ export class ProductsComponent implements OnInit {
   
     return total;
   }
+
+  checkProductsSelected() {
+    this.atLeastOneProductSelected = this.selectedProducts.length > 0;
+  }
   
   enviarPedido() {
-    const selectedProducts = this.selectedProducts;
-  
-    this.productsCommunicationService.setCustomerInfo(this.customerName, this.customerTable);
-  
-    this.productsCommunicationService.enviarPedidoACocina();
-  
-    this.productsCommunicationService.clearSelectedProducts();
-  
-    this.customerName = '';
-    this.customerTable = '';
+    if (this.atLeastOneProductSelected) {
+      const selectedProducts = this.selectedProducts;
+    
+      this.productsCommunicationService.setCustomerInfo(this.customerName, this.customerTable);
+    
+      this.productsCommunicationService.enviarPedidoACocina();
+    
+      this.productsCommunicationService.clearSelectedProducts();
+    
+      this.customerName = '';
+      this.customerTable = '';
+    } else {
+      console.error('Você deve escolher pelo menos um produto antes de enviar o pedido');
+    }
   }
 }
