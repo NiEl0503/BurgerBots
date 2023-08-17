@@ -7,6 +7,8 @@ import { HeaderComponent } from './view/commons/header/header.component';
 import { FooterComponent } from './view/commons/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './services/login/login.service';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { LoginService } from './services/login/login.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     LoginService

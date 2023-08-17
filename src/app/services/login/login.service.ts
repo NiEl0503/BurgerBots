@@ -43,7 +43,7 @@ export class LoginService {
   
       const err = error as any;
   
-      if (err.status === 401) {
+      if (err.status === 400) {
         console.log('Senha incorreta');
       } else if (err.status === 404) {
         console.log('Usuário não encontrado');
