@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product/product.service';
 import { HttpHeaders } from '@angular/common/http';
 import { LocalStorageService } from '../../../services/localStorage/local-storage.service';
@@ -10,8 +10,8 @@ import { ProductsCommunicationService } from '../../../services/products-communi
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  customerName: string = '';
-  customerTable: string = '';
+  @Input() customerName: string = '';
+  @Input() customerTable: string = '';
   showBreakfastContainer = false;
   showMainMenuContainer = false;
   selectedProducts: any[] = [];

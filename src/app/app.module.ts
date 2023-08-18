@@ -7,7 +7,7 @@ import { HeaderComponent } from './view/commons/header/header.component';
 import { FooterComponent } from './view/commons/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './services/login/login.service';
-import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -19,8 +19,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    FormsModule
+    HttpClientModule
   ],
   providers: [
     LoginService
