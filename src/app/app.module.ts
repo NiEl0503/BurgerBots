@@ -7,16 +7,13 @@ import { HeaderComponent } from './view/commons/header/header.component';
 import { FooterComponent } from './view/commons/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './services/login/login.service';
-import { OrderComponent } from './cozinha/order/order.component';
-
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
-    OrderComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -20,13 +20,40 @@ body {
 }
 
 .conteiner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adaptar columnas automáticamente */
+  gap: 1em; /* Espacio entre los pedidos */
   margin-top: 4em;
 }
 
 .conteiner-order {
-   background: var(--firstColor); 
+  padding: 1em;
+
+}
+
+.conteiner-order__header,
+.conteiner-order__footer {
+  background-color: #000000;
+  color: var(--firstColor);
+}
+
+.conteiner-order__body {
+  background-color: var(--firstColor);
+  color: #000000;
+}
+
+@media (max-width: 768px) { /* Cambios para tablet */
+  .conteiner {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 480px) { /* Cambios para mobile */
+  .conteiner {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  }
+
+  .conteiner-order {
+    padding: 0.5em;
+  }
 }

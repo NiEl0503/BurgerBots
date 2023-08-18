@@ -1,16 +1,19 @@
 <section class="conteiner">
-    <div class="conteiner-order">
-        
-    <div class= "conteiner-order__header">
-    <p id="ordem" class="order #">Ordem</p>
-    <p>Hora pedido</p>
-    <p>Nome</p>
-    <p>mesa</p>
-    
+    <div class="conteiner-order" *ngFor="let order of orders">
+      <div class="conteiner-order__header">
+        <p class="order">{{ order.numeroOrden }}</p>
+        <p>{{ order.horaPedido }}</p>
+        <p>{{ order.nombre }}</p>
+        <p>{{ order.mesa }}</p>
+      </div>
+      <div class="conteiner-order__body">
+        {{ order.contenido }}
+      </div>
+      <div class="conteiner-order__footer">
+        <p>{{ order.estado }}</p>
+        <p>{{ order.tiempoPedido }}</p>
+        <button>Inicio/Finalizar</button>
+      </div>
     </div>
-    <div class="conteiner-order__body"></div>
-    <div class="conteiner-order__footer"></div>
-    
-    </div>
-    </section>
-    
+  </section>
+  

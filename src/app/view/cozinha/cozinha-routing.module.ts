@@ -4,7 +4,7 @@ import { CozinhaComponent } from './cozinha.component';
 
 const routes: Routes = [
   {
-    path: 'cozi',
+    path: '',
     component: CozinhaComponent
   }
 ];
