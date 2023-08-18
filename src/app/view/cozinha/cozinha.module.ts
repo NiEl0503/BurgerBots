@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { CozinhaRoutingModule } from './cozinha-routing.module';
 import { CozinhaComponent } from './cozinha.component';
+import { OrderComponent } from './order/order.component';
 
 
 @NgModule({
   declarations: [
-    CozinhaComponent
+    CozinhaComponent,
+    OrderComponent
   ],
   imports: [
     CommonModule,
