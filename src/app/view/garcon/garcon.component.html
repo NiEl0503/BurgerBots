@@ -1,8 +1,8 @@
 <body>
     <section class="conteiner">
-        <div class='conteiner-inputs'>
-            <input type='text' class='inputs-info' placeholder='Nome' id='nome' />
-            <select id="typeyear" class="inputs-info">
+        <div class="conteiner-inputs">
+            <input type="text" class="inputs-info" placeholder="Nome" id="name" [(ngModel)]="name"/>
+            <select id="table" class="inputs-info"  [(ngModel)]="table" >
                 <option value="Mesa" disabled selected style="display: none">Mesa</option>
                 <option class="options" value="Mesa">Mesa</option>
                 <option class="options" value="1">1</option>
@@ -18,5 +18,5 @@
         </div>
     </section>
 </body>
-<app-products></app-products>
+<app-products [customerName]="name" [customerTable]="table"></app-products>
 <app-pedidos></app-pedidos>

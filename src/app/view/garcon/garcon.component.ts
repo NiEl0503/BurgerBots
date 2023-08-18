@@ -7,6 +7,8 @@ import { ProductsCommunicationService } from '../../services/products-communicat
   styleUrls: ['./garcon.component.css']
 })
 export class GarconComponent {
+  name: string = '';
+  table: string = '';
   constructor(private productsCommunicationService: ProductsCommunicationService) {}
 
   showBreakfast() {
