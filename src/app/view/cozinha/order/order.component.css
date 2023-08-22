@@ -21,8 +21,8 @@ body {
 
 .conteiner {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adaptar columnas automáticamente */
-  gap: 1em; /* Espacio entre los pedidos */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1em;
   margin-top: 4em;
 }
 
@@ -42,13 +42,13 @@ body {
   color: #000000;
 }
 
-@media (max-width: 768px) { /* Cambios para tablet */
+@media (max-width: 768px) {
   .conteiner {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
 
-@media (max-width: 480px) { /* Cambios para mobile */
+@media (max-width: 480px) {
   .conteiner {
     grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
   }

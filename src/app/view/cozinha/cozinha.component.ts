@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../../services/orderService/orden-service.service';
-import { ProductsCommunicationService } from '../../services/products-communication/products-communication.service';
+
 
 @Component({
   selector: 'app-cozinha',
@@ -10,7 +10,11 @@ import { ProductsCommunicationService } from '../../services/products-communicat
 export class CozinhaComponent implements OnInit {
   orders: any[] = [];
 
-  constructor(private orderService: OrderService) {}
+  constructor(
+    // private orderService: OrderService
+    private readonly orderService: OrderService,
+    ) 
+    {}
 
   ngOnInit() {
     this.orderService.getOrders().subscribe((data) => {
