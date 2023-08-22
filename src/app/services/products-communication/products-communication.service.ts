@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LocalStorageService } from '../localStorage/local-storage.service';
 
@@ -12,6 +12,8 @@ export class ProductsCommunicationService {
   private readonly OPTIONS = { headers: this.HEADERS };
   private showBreakfastSource = new BehaviorSubject<boolean>(false);
   showBreakfast$ = this.showBreakfastSource.asObservable();
+  private newOrderSource = new Subject<any>();
+  newOrder$ = this.newOrderSource.asObservable();
 
   private showMainMenuSource = new BehaviorSubject<boolean>(false);
   showMainMenu$ = this.showMainMenuSource.asObservable();
@@ -34,22 +36,25 @@ export class ProductsCommunicationService {
     this.HEADERS = new HttpHeaders().set('Authorization', `Bearer ${accessToken}`);
     this.OPTIONS = { headers: this.HEADERS };
    }
-  enviarPedidoACocina() {
+   enviarPedidoACocina() {
     const pedido = {
-      customerInfo: this.customerInfo,
-      selectedProducts: this.selectedProducts
+      id: null,
+      client: this.customerInfo.name,
+      products: this.selectedProducts
     };
-
-    this.http.post<any>('http://localhost:8080/orders', pedido,this.OPTIONS)
+  
+    this.http.post<any>('http://localhost:8080/orders', pedido, this.OPTIONS)
       .subscribe(
         response => {
           console.log('Pedido enviado para a cozinha:', response);
+          this.newOrderSource.next(response);
         },
         error => {
           console.error('Erro ao enviar o pedido para a cozinha:', error);
         }
       );
   }
+  
 
   setShowBreakfast(value: boolean) {
     this.showBreakfastSource.next(value);
