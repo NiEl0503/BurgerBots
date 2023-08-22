@@ -14,6 +14,9 @@ import { OrderComponent } from './order/order.component';
   imports: [
     CommonModule,
     CozinhaRoutingModule
-  ]
+  ],
+  exports: [
+    CozinhaComponent
+  ],
 })
 export class CozinhaModule { }
