@@ -35,11 +35,35 @@ body {
 .conteiner-order__footer {
   background-color: #000000;
   color: var(--firstColor);
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}
+
+.conteiner-order__header p {
+  margin: 0;
 }
 
 .conteiner-order__body {
   background-color: var(--firstColor);
   color: #000000;
+}
+
+ul {
+  list-style-type: none;
+}
+
+button {
+  margin-top: 1em;
+  border-radius: 25px;
+  width: 50%;
+  background-color: var(--btnOrder)
+}
+
+.status {
+  margin-top: 0.5em;
 }
 
 @media (max-width: 768px) {

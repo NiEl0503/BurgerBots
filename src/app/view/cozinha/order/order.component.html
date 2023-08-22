@@ -1,22 +1,25 @@
 <section class="conteiner">
   <div class="conteiner-order" *ngFor="let order of orders">
     <div class="conteiner-order__header">
-      <p class="order">{{ order.numeroOrden }}</p>
-      <p>{{ order.horaPedido }}</p>
-      <p>{{ order.nombre }}</p>
-      <p>{{ order.mesa }}</p>
+      <p class="order">Ordem #{{ order.id }}</p>
+       <p>{{ order.dataEntry | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
+      <p>{{ order.client }}</p>
+      <p>Mesa: {{ order.products[0].qty }}</p>
     </div>
     <div class="conteiner-order__body">
-      {{ order.contenido }}
+      <h4>Conteúdo do Pedido:</h4>
+      <ul>
+        <li *ngFor="let product of order.products">
+          {{ product.qty }}  {{ product.product.name }} 
+        </li>
+      </ul>
     </div>
     <div class="conteiner-order__footer">
-      <p>{{ order.estado }}</p>
+      <p class="status">{{ order.status }}</p>
       <p>{{ order.tiempoPedido }}</p>
-      <button>Inicio/Finalizar</button>
+      <button>Inicio</button>
     </div>
   </div>
 </section>
 
-<!-- <div>
-    <img src="../../../../assets/Logo.png" alt="">
-  </div> -->
+
