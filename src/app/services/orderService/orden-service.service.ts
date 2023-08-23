@@ -20,6 +20,7 @@ export class OrderService {
   }
 
   getOrders(): Observable<any[]> {
+    
     return this.http.get<any[]>(`${this.URL}/orders`, this.OPTIONS).pipe(
       catchError((error) => {
         console.error('Erro ao buscar pedidos:', error);

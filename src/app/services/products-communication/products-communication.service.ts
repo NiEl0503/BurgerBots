@@ -40,7 +40,10 @@ export class ProductsCommunicationService {
     const pedido = {
       id: null,
       client: this.customerInfo.name,
-      products: this.selectedProducts
+      mesa: this.customerInfo.table,
+      products: this.selectedProducts,
+      dataEntry: new Date(),
+      status: 'string'     
     };
   
     this.http.post<any>('http://localhost:8080/orders', pedido, this.OPTIONS)
