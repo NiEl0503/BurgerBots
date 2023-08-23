@@ -3,21 +3,27 @@
     <div class="conteiner-order__header">
       <p class="order">Ordem #{{ order.id }}</p>
        <p>{{ order.dataEntry | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
-      <p>{{ order.client }}</p>
-      <p>Mesa: {{ order.products[0].qty }}</p>
+       <p>Cliente: {{ order.client }}</p>
+      <p>Mesa: {{ order.mesa }}</p>
     </div>
     <div class="conteiner-order__body">
       <h4>Conteúdo do Pedido:</h4>
       <ul>
         <li *ngFor="let product of order.products">
-          {{ product.qty }}  {{ product.product.name }} 
+          {{ product.quantity }}  {{ product.name }} 
         </li>
       </ul>
     </div>
     <div class="conteiner-order__footer">
+      <!-- <p class="status">{{ getOrderStatusText(order.status) }}</p> -->
       <p class="status">{{ order.status }}</p>
       <p>{{ order.tiempoPedido }}</p>
-      <button>Inicio</button>
+      <button (click)="startOrder(order)">
+        {{ order.status === 'pending' ? 'Inicio' : order.status === 'procesando' ? 'Procesando' : 'Finalizado' }}
+      </button>
+      <!-- <button (click)="startOrder(order)">
+        {{ getOrderButtonText(order.status) }}
+      </button> -->
     </div>
   </div>
 </section>
