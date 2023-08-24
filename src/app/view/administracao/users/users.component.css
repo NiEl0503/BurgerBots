@@ -7,7 +7,8 @@
 }
 
 .conteiner-users {
-  background-color: var(--firstColor);
+  border: solid 2px var(--letterColor);
+  width: 20em;
 }
 
 .conteiner-users__list {
@@ -47,6 +48,10 @@ ul li {
   list-style-type: none;
 }
 
+li {
+  text-align: center;
+}
+
 .add {
   margin-top: 1em;
 }
@@ -56,6 +61,15 @@ button.add-contact {
   justify-content: center;
   align-items: center;
   width: 30px;
-  margin-left: 85px;
+  margin-left: 140px;
 }
 
+@media screen and (min-width: 600px) {
+  .conteiner-users {
+    width: 25em;
+  }
+
+  button.add-contact {
+    margin-left: 190px;
+  }
+}
