@@ -11,7 +11,6 @@ export class CozinhaComponent implements OnInit {
   orders: any[] = [];
 
   constructor(
-    // private orderService: OrderService
     private readonly orderService: OrderService,
     ) 
     {}
