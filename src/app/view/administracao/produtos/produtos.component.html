@@ -1,1 +1,36 @@
-<p>produtos works!</p>
+<body>
+    <section class="conteiner">
+        <div class="conteiner-products">
+            <div class="conteiner-products__list">
+                <p class="product">Lista de Productos</p>
+                <ul class="product-list">
+                    <li *ngFor="let product of products" class="product-item">
+                        <div class="product-content">
+                            <img [src]="product.image" alt="{{ product.name }}">
+                            <p>{{ product.name }} - R${{ product.price }}</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="conteiner-products__modification">
+                <p class="actualization">Atualização de produtos</p>
+                <ul>
+                    <li *ngFor="let product of products">
+                        <p>{{ product.name }} - {{ product.price }}</p>
+                        <figure class="image">
+                            <button>
+                                <img src="../../../../assets/edit.png" alt="imagem editar contato">
+                            </button>
+                            <button>
+                                <img src="../../../../assets/lixo.png" alt="imagem lixo">
+                            </button>
+                        </figure>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+</body>

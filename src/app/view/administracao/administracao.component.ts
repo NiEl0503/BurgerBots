@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ProductService } from '../../services/product/product.service';
 
 @Component({
   selector: 'app-administracao',
@@ -8,13 +9,21 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AdministracaoComponent implements OnInit {
   users: any[] = [];
+  products: any[] = [];
 
-  constructor(private http: HttpClient ) {}
+  constructor(
+    private http: HttpClient,
+    private productService: ProductService // Inyecta ProductService en el constructor
+  ) {}
 
   ngOnInit() {
     this.http.get<any[]>('http://localhost:8080/users')
       .subscribe(users => {
         this.users = users;
       });
+
+    this.productService.getProducts().subscribe(products => {
+      this.products = products;
+    });
   }
 }

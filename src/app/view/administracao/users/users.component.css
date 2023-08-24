@@ -1,12 +1,75 @@
 .conteiner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 4em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4em;
+}
+
+.conteiner-users {
+  border: solid 2px var(--letterColor);
+  width: 20em;
+}
+
+.conteiner-users__list {
+  margin-bottom: 2em;
+ }
+
+.conteiner-users__list p {
+  margin-bottom: 1em;
+  text-align: center;
+  background-color: var(--letterColor);
+  color: var(--firstColor);
+  font-weight: bold;
+}
+
+
+.conteiner-users__modification p {
+  text-align: center;
+  background-color: var(--letterColor);
+  margin-bottom: .5em;
+  color: var(--firstColor);
+  font-weight: bold;
+}
+
+.conteiner-users__modification .img {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 1em;
+}
+
+.conteiner-users__modification img {
+  width: 30px;
+  height: 30px;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+li {
+  text-align: center;
+}
+
+.add {
+  margin-top: 1em;
+}
+
+button.add-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  margin-left: 140px;
+}
+
+@media screen and (min-width: 600px) {
+  .conteiner-users {
+    width: 25em;
   }
 
-  .conteiner-users__modification img {
-    width: 30px;
-    height: 30px;
+  button.add-contact {
+    margin-left: 190px;
   }
+}
