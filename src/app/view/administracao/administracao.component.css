@@ -12,7 +12,6 @@
 body {
   padding: 0;
   font-family: 'Sofia Sans', sans-serif;
-  background: var(--bgColor);
   color: var(--letterColor);
   display: flex;
   justify-content: center;
