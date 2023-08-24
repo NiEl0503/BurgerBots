@@ -1,1 +1,32 @@
-<p>users works!</p>
+<body>
+    <section class="conteiner">
+        <div class="conteiner-users">
+            <div class="conteiner-users__list">
+                <p>lista usuarios</p>
+                <ul>
+                    <li *ngFor="let user of users">{{ user.email }} - {{ user.role }}</li>
+                </ul>
+            </div>
+            <div class="conteiner-users__modification">
+                <p>lista usuarios</p>
+                <figure class="imagems">
+                <button>
+                    <img src="../../../../assets/edit.png" alt="imagem editar contato">
+                </button>
+                <button>
+                    <img src="../../../../assets/contato.png" alt="imagem adicionar contato">
+                </button>
+                <button>
+                    <img src="../../../../assets/lixo.png" alt="imagem lixo">
+                </button>
+            </figure>
+            </div>
+        </div>
+
+
+        <div class="conteiner-products">
+            <div class="conteiner-products__list"></div>
+            <div class="conteiner-products__modification"></div>
+        </div>
+    </section>
+</body>

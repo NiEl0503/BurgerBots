@@ -1,0 +1,12 @@
+.conteiner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4em;
+  }
+
+  .conteiner-users__modification img {
+    width: 30px;
+    height: 30px;
+  }
