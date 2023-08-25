@@ -1,31 +1,34 @@
-<section class="conteiner">
+<section class="conteiner" *ngIf = "orders.length > 0">
   <div class="conteiner-order" *ngFor="let order of orders">
     <div class="conteiner-order__header">
       <p class="order">Ordem #{{ order.id }}</p>
-       <p>{{ order.dataEntry | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
-       <p>Cliente: {{ order.client }}</p>
+      <p>{{ order.dataEntry | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
+      <p>Cliente: {{ order.client }}</p>
       <p>Mesa: {{ order.mesa }}</p>
     </div>
     <div class="conteiner-order__body">
       <h4>Conteúdo do Pedido:</h4>
       <ul>
         <li *ngFor="let product of order.products">
-          {{ product.quantity }}  {{ product.name }} 
+          {{ product.quantity }} {{ product.name }}
         </li>
       </ul>
     </div>
     <div class="conteiner-order__footer">
-      <!-- <p class="status">{{ getOrderStatusText(order.status) }}</p> -->
-      <p class="status">{{ order.status }}</p>
+      <p class="status">{{ order.currentStatus }}</p>
       <p>{{ order.tiempoPedido }}</p>
-      <button (click)="startOrder(order)">
-        {{ order.status === 'pending' ? 'Inicio' : order.status === 'procesando' ? 'Procesando' : 'Finalizado' }}
+      <div>
+        <select name="status" id="status" [(ngModel)]="order.status">
+          <option value="pending">Pendente</option>
+          <option value="canceled">Cancelado</option>
+          <option value="delivering">Entregando</option>
+          <option value="delivered">Entregue</option>
+        </select>
+      </div>
+      <button (click)="updateOrder(order)">
+        Atualizar Pedido
       </button>
-      <!-- <button (click)="startOrder(order)">
-        {{ getOrderButtonText(order.status) }}
-      </button> -->
+
     </div>
   </div>
 </section>
-
-

@@ -8,8 +8,8 @@ import { ProductsCommunicationService } from '../../../services/products-communi
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent implements OnInit {
-  @Input() orders: any;
-  table: string = '';
+  orders: any[] = [];
+
 
   constructor(
     private orderService: OrderService,
@@ -18,60 +18,24 @@ export class OrderComponent implements OnInit {
 
   ngOnInit() {
     this.loadOrders();
-
-    this.productsCommunicationService.newOrder$.subscribe(newOrder => {
-      this.orders.push(newOrder);
-    });
-
-    console.log('Orders:', this.orders);
   }
 
   private loadOrders() {
 
     this.orderService.getOrders().subscribe(data => {
+      data.map(pedido => pedido.currentStatus = pedido.status)
+      console.log(data);
       this.orders = data;
+      console.log(this.orders);
+
     });
   }
 
-  startOrder(order: any) {
-    if (order.status === 'pending') {
-      order.status = 'procesando';
-    } else if (order.status === 'procesando') {
-      order.status = 'finalizado';
-    }
+  updateOrder(pedido: any) {
+   this.orderService.updateOrder(pedido).subscribe(data => {
+    console.log(data);
+    this.orders = [];
+    this.loadOrders();
+   })
   }
-
-
-  // startOrder(order: any) {
-  //   if (order.status === 'Pendente') {
-  //     order.status = 'Em processamento';
-  //   } else if (order.status === 'Em processamento') {
-  //     order.status = 'Finalizado';
-  //   }
-  // }
-
-  //   getOrderButtonText(status: string): string {
-  //     if (status === 'Pendente') {
-  //       return 'Inicio';
-  //     } else if (status === 'Em processamento') {
-  //       return 'Em processamento';
-  //     } else if (status === 'Finalizado') {
-  //       return 'Finalizado';
-  //     } else {
-  //       return 'Desconhecido';
-  //     }
-  //   }
-
-  //   getOrderStatusText(status: string): string {
-  //     if (status === 'Pendente') {
-  //       return 'Pendente';
-  //     } else if (status === 'Em processamento') {
-  //       return 'Em processamento';
-  //     } else if (status === 'Finalizado') {
-  //       return 'Finalizado';
-  //     } else {
-  //       return 'Desconhecido';
-  //     }
-  //   }
-
 }
