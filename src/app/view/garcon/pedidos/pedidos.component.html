@@ -4,19 +4,26 @@
         <div class="conteiner-products__prontos">
             <div class="pedidos">
               <ul>
-                <li *ngFor="let order of pedidosProntos">{{ order.client }} - Mesa {{ order.mesa }}</li>
+                <li *ngFor="let order of pedidosProntos">
+                    <label>
+                      <input type="checkbox" [(ngModel)]="order.selected" /> {{ order.client }} - Mesa {{ order.mesa }}
+                    </label>
+                  </li>
+              </ul>
+            </div>
+            <button (click)="moverPedidosEntregues()">Marcar como entregue</button>
+          </div>
+          
+          <h4 class="entregues">Pedidos entregues</h4>
+          <div class="conteiner-products__entregues">
+            <div class="pedidos">
+              <ul class="pedidos-entregues">
+                <li *ngFor="let order of pedidosEntregues">
+                  {{ order.client }} - Mesa {{ order.mesa }}
+                </li>
               </ul>
             </div>
           </div>
           
-        <h4 class="entregues">Pedidos entregues</h4>
-        <div class="conteiner-products__entregues">
-            <div class="pedidos">
-                <ul class="pedidos-entregues">
-                    <li>Nome e Mesa</li>
-                    <li>Nome e Mesa</li>
-                </ul>
-            </div>
-        </div>
     </section>
 </body>
