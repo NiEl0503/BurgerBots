@@ -43,7 +43,7 @@ export class ProductsCommunicationService {
       mesa: this.customerInfo.table,
       products: this.selectedProducts,
       dataEntry: new Date(),
-      status: 'string'     
+      status: 'pending'     
     };
   
     this.http.post<any>('http://localhost:8080/orders', pedido, this.OPTIONS)

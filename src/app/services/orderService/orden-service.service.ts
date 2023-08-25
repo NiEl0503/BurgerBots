@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { LocalStorageService } from '../localStorage/local-storage.service';
 
 @Injectable({
@@ -20,12 +19,12 @@ export class OrderService {
   }
 
   getOrders(): Observable<any[]> {
-    
-    return this.http.get<any[]>(`${this.URL}/orders`, this.OPTIONS).pipe(
-      catchError((error) => {
-        console.error('Erro ao buscar pedidos:', error);
-        return throwError('Falha ao buscar pedidos.');
-      })
-    );
+
+    return this.http.get<any[]>(`${this.URL}/orders`, this.OPTIONS);
   }
+
+  updateOrder(order: any): Observable<any[]> {
+    return this.http.patch<any[]>(`${this.URL}/orders/${order.id}`, order, this.OPTIONS);
+  }
+
 }
