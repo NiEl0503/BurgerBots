@@ -9,16 +9,26 @@ import { OrderService } from 'src/app/services/orderService/orden-service.servic
 
 export class PedidosComponent implements OnInit {
   pedidosProntos: any[] = [];
+  pedidosEntregues: any[] = [];
 
   constructor(private orderService: OrderService) { }
 
   ngOnInit() {
-    this.loadPedidosEntregados();
+    this.loadPedidosProntos();
   }
 
-  private loadPedidosEntregados() {
+  private loadPedidosProntos() {
     this.orderService.getOrders().subscribe(data => {
       this.pedidosProntos = data.filter(pedido => pedido.status === 'delivered');
     });
+  }
+
+  moverPedidosEntregues() {
+    const pedidosSelecionados = this.pedidosProntos.filter(pedido => pedido.selected);
+    
+    this.pedidosEntregues.push(...pedidosSelecionados);
+    this.pedidosProntos = this.pedidosProntos.filter(pedido => !pedido.selected);
+
+    pedidosSelecionados.forEach(pedido => pedido.selected = false);
   }
 }
