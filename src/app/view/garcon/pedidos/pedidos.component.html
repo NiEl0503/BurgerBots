@@ -3,12 +3,12 @@
         <h4>Pedidos prontos</h4>
         <div class="conteiner-products__prontos">
             <div class="pedidos">
-                <ul>
-                    <li>Nome e Mesa</li>
-                    <li>Nome e Mesa</li>
-                </ul>
+              <ul>
+                <li *ngFor="let order of pedidosProntos">{{ order.client }} - Mesa {{ order.mesa }}</li>
+              </ul>
             </div>
-        </div>
+          </div>
+          
         <h4 class="entregues">Pedidos entregues</h4>
         <div class="conteiner-products__entregues">
             <div class="pedidos">
