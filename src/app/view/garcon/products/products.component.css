@@ -1,3 +1,4 @@
+
 body {
   background-color: var(--bgColor);
   width: 80%;
@@ -16,6 +17,7 @@ body {
   margin-top: 1em;
   background-color: var(--firstColor);
   min-height: 30vh;
+  width: 85%;
 }
 
 .conteiner-products__breakfast,

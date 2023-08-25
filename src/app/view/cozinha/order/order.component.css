@@ -32,7 +32,7 @@ body {
 
 .conteiner-order__header,
 .conteiner-order__footer {
-  background-color: #000000;
+  background-color: var(--letterColor);
   color: var(--firstColor);
   display: grid;
   grid-template-columns: 1fr;
@@ -47,7 +47,10 @@ body {
 
 .conteiner-order__body {
   background-color: var(--firstColor);
-  color: #000000;
+  color: var(--letterColor);
+  padding-bottom: .5em;
+  padding-top: .5em;
+  text-align: center;
 }
 
 ul {
@@ -56,13 +59,26 @@ ul {
 
 button {
   margin: 0.5em 0;
-  border-radius: 25px;
-  width: 50%;
-  background-color: var(--btnOrder)
+  border-radius: 15px;
+  width: 75%;
+  background-color: var(--firstColor);
+  color: var(--letterColor);
 }
 
 .status {
   margin-top: 0.5em;
+}
+
+#stat {
+  background-color: var(--firstColor);
+  color: var(--letterColor);
+  border-radius: 15px;
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+.time {
+  font-size: .8em;
 }
 
 @media (max-width: 768px) {

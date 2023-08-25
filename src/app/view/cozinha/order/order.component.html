@@ -1,4 +1,4 @@
-<section class="conteiner" *ngIf = "orders.length > 0">
+<section class="conteiner" *ngIf="orders.length > 0">
   <div class="conteiner-order" *ngFor="let order of orders">
     <div class="conteiner-order__header">
       <p class="order">Ordem #{{ order.id }}</p>
@@ -15,20 +15,18 @@
       </ul>
     </div>
     <div class="conteiner-order__footer">
+      <p *ngIf="order.status === 'pending'" class="time">Tempo transcorrido: {{ order.tiempoPedido }}</p>
+      <p *ngIf="order.status === 'delivered'">Tempo total: {{ order.tiempoPedidoFinal }}</p>
       <p class="status">{{ order.currentStatus }}</p>
-      <p>{{ order.tiempoPedido }}</p>
       <div>
-        <select name="status" id="status" [(ngModel)]="order.status">
+        <select name="statu" id="stat" [(ngModel)]="order.status">
           <option value="pending">Pendente</option>
-          <option value="canceled">Cancelado</option>
-          <option value="delivering">Entregando</option>
           <option value="delivered">Entregue</option>
         </select>
       </div>
       <button (click)="updateOrder(order)">
         Atualizar Pedido
       </button>
-
     </div>
   </div>
 </section>

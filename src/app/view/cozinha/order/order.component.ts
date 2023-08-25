@@ -9,6 +9,7 @@ import { ProductsCommunicationService } from '../../../services/products-communi
 })
 export class OrderComponent implements OnInit {
   orders: any[] = [];
+  private interval: any;
 
 
   constructor(
@@ -18,6 +19,7 @@ export class OrderComponent implements OnInit {
 
   ngOnInit() {
     this.loadOrders();
+    this.startElapsedTimeUpdate();
   }
 
   private loadOrders() {
@@ -38,4 +40,46 @@ export class OrderComponent implements OnInit {
     this.loadOrders();
    })
   }
+
+  updateElapsedTime() {
+    const currentTime = new Date().getTime();
+    this.orders.forEach(order => {
+      if (order.status === 'pending') {
+        const orderTime = new Date(order.dataEntry).getTime();
+        const elapsedTime = currentTime - orderTime;
+        const seconds = Math.floor(elapsedTime / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+  
+        const elapsedTimeString = `${hours}h ${minutes % 60}m ${seconds % 60}s`;
+        order.tiempoPedido = elapsedTimeString;
+      } else if (order.status === 'delivered' && !order.tiempoPedidoFinal) {
+        const orderTime = new Date(order.dataEntry).getTime();
+        const deliveredTime = new Date(order.dataDelivered).getTime();
+        const elapsedTime = deliveredTime - orderTime;
+        const seconds = Math.floor(elapsedTime / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+  
+        const elapsedTimeString = `${hours}h ${minutes % 60}m ${seconds % 60}s`;
+        order.tiempoPedidoFinal = elapsedTimeString;
+        this.stopElapsedTimeUpdate();
+      }
+    });
+  }
+  
+  ngOnDestroy() {
+    this.stopElapsedTimeUpdate();
+  }
+
+  startElapsedTimeUpdate() {
+    this.interval = setInterval(() => {
+      this.updateElapsedTime();
+    }, 1000);
+  }
+
+  stopElapsedTimeUpdate() {
+    clearInterval(this.interval);
+  }
+
 }
