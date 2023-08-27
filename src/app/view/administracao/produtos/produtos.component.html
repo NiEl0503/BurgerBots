@@ -6,7 +6,7 @@
                 <ul class="product-list">
                     <li *ngFor="let product of products" class="product-item">
                         <div class="product-content">
-                            <img [src]="product.image" alt="{{ product.name }}">
+                            <img [src]="product.image" alt="{{ product.name }}" class="img-product">
                             <p>{{ product.name }} - R${{ product.price }}</p>
                         </div>
                     </li>
@@ -18,19 +18,20 @@
                 <p class="actualization">Atualização de produtos</p>
                 <ul>
                     <li *ngFor="let product of products">
-                        <p>{{ product.name }} - {{ product.price }}</p>
-                        <figure class="image">
-                            <button>
-                                <img src="../../../../assets/edit.png" alt="imagem editar contato">
-                            </button>
-                            <button>
-                                <img src="../../../../assets/lixo.png" alt="imagem lixo">
-                            </button>
-                        </figure>
+                        <p>{{ product.name }} - R${{ product.price }}</p>
+                        <button class="img">
+                            Editar
+                        </button>
+                        <button class="img">
+                            Excluir
+                        </button>
                     </li>
                 </ul>
+                <p class="add">+ Adicionar produto</p>
+                <button class="add-contact">
+                    <img src="../../../../assets/contato.png" alt="imagem adicionar contato">
+                </button>
             </div>
         </div>
-
     </section>
 </body>

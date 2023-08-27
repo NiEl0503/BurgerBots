@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 4em;
+  color: var(--letterColor);
 }
 
 .conteiner-users {
@@ -64,12 +65,26 @@ button.add-contact {
   margin-left: 140px;
 }
 
+
+button.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  margin-left: 140px;
+  border-radius: 5px;
+  width: 60px;
+  background-color: var(--firstColor);
+  color: var(--letterColor)
+}
+
 @media screen and (min-width: 600px) {
   .conteiner-users {
-    width: 25em;
+    width: 30em;
   }
 
-  button.add-contact {
-    margin-left: 190px;
+  button.add-contact,
+  button.img  {
+    margin-left: 220px;
   }
 }
