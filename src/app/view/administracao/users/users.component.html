@@ -10,19 +10,38 @@
             <div class="conteiner-users__modification">
                 <p>Atualização de cadastro</p>
                 <ul>
-                    <li *ngFor="let user of users">{{ user.email }} - {{ user.role }}
-                            <button class="img">
-                                Editar
-                            </button>
-                            <button class="img">
-                                Excluir
-                            </button>
+                    <li *ngFor="let user of users">
+                        {{ user.email }} - {{ user.role }}
+                        <button class="img" (click)="editUsers(user)">Editar</button>
+                        <button class="img" (click)="deleteUsers(user)">Excluir</button>
                     </li>
                 </ul>
-                <p class="add">+ Adicionar funcionário</p>
-                <button class="add-contact">
-                    <img src="../../../../assets/contato.png" alt="imagem adicionar contato">
-                </button>
+                <p class="add">
+                    + Adicionar funcionário
+                    <button class="add-contact" (click)="addUsers()">
+                        <img src="../../../../assets/contato.png" alt="imagem adicionar contato">
+                    </button>
+                </p>
+                <div class="new-user-form">
+                    <div class="input-container">
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" [(ngModel)]="newUser.email">
+                    </div>
+
+                    <div class="input-container">
+                        <label for="password">Senha:</label>
+                        <input type="password" id="password" [(ngModel)]="newUser.password">
+                    </div>
+
+                    <div class="input-container">
+                        <label for="role">Rol:</label>
+                        <input type="text" id="role" [(ngModel)]="newUser.role">
+                    </div>
+
+                    <div class="button-container">
+                        <button (click)="saveEdit()">Guardar mudanças</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

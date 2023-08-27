@@ -78,6 +78,24 @@ button.img {
   color: var(--letterColor)
 }
 
+.new-user-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 0.3em;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.button-container {
+  margin-top: 1em;
+}
+
 @media screen and (min-width: 600px) {
   .conteiner-users {
     width: 30em;

@@ -4,6 +4,7 @@ import { AdministracaoRoutingModule } from './administracao-routing.module';
 import { AdministracaoComponent } from './administracao.component';
 import { UsersComponent } from './users/users.component';
 import { ProdutosComponent } from './produtos/produtos.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ProdutosComponent } from './produtos/produtos.component';
   ],
   imports: [
     CommonModule,
-    AdministracaoRoutingModule
+    AdministracaoRoutingModule,
+    FormsModule
   ],
   exports: [
     AdministracaoComponent
