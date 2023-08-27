@@ -35,13 +35,19 @@ export class UsersComponent implements OnInit {
   }
 
   deleteUsers(user: any) {
-    const confirmarExclusao= confirm(`Tem certeza de que deseja excluir o usuário ${user.email}?`);
+    const confirmarExclusao = confirm(`Tem certeza de que deseja excluir o usuário ${user.email}?`);
     if (confirmarExclusao) {
-      this.userService.deleteUser(user.id).subscribe(() => {
-        this.loadUsers();
-      });
+      this.userService.deleteUser(user.id).subscribe(
+        () => {
+          this.loadUsers();
+        },
+        error => {
+          console.error('Erro ao excluir usuario:', error);
+        }
+      );
     }
   }
+  
 
   addUsers() {
     this.userService.addUser(this.newUser).subscribe(() => {

@@ -23,9 +23,9 @@ export class UsersService {
   }
 
   deleteUser(userId: number) {
-    return this.http.delete(`${this.URL}/users`, this.OPTIONS);
+    return this.http.delete(`${this.URL}/users/${userId}`, this.OPTIONS);
   }
-
+  
   addUser(newUser: any) {
     return this.http.post(`${this.URL}/users`, newUser, this.OPTIONS);
   }
