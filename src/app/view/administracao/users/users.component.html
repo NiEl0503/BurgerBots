@@ -11,14 +11,12 @@
                 <p>Atualização de cadastro</p>
                 <ul>
                     <li *ngFor="let user of users">{{ user.email }} - {{ user.role }}
-                        <figure class="img">
-                            <button>
-                                <img src="../../../../assets/edit.png" alt="imagem editar contato">
+                            <button class="img">
+                                Editar
                             </button>
-                            <button>
-                                <img src="../../../../assets/lixo.png" alt="imagem lixo">
+                            <button class="img">
+                                Excluir
                             </button>
-                        </figure>
                     </li>
                 </ul>
                 <p class="add">+ Adicionar funcionário</p>
