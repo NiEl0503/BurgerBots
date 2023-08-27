@@ -12,6 +12,7 @@
                     </li>
                 </ul>
             </div>
+       
 
 
             <div class="conteiner-products__modification">
@@ -19,18 +20,41 @@
                 <ul>
                     <li *ngFor="let product of products">
                         <p>{{ product.name }} - R${{ product.price }}</p>
-                        <button class="img">
-                            Editar
-                        </button>
-                        <button class="img">
-                            Excluir
-                        </button>
+                        <button class="img" (click)="editProduct(product)">Editar</button>
+                        <button class="img" (click)="deleteProduct(product)">Excluir</button>
                     </li>
                 </ul>
-                <p class="add">+ Adicionar produto</p>
-                <button class="add-contact">
-                    <img src="../../../../assets/contato.png" alt="imagem adicionar contato">
-                </button>
+                <p class="add">
+                    + Adicionar produto
+                    <button class="add-product" (click)="addProduct()">
+                        <img src="../../../../assets/contato.png" alt="imagem adicionar produto">
+                    </button>
+                </p>
+                <div class="new-user-form">
+                    <div class="input-container">
+                        <label for="name">Nome:</label>
+                        <input type="text" id="name" [(ngModel)]="newProduct.name">
+                    </div>
+
+                    <div class=" input-container">
+                        <label for="preco">Preco:</label>
+                        <input type="text" id="preco" [(ngModel)]="newProduct.price">
+                    </div>
+
+                    <div class="input-container">
+                        <label for="type">Tipo:</label>
+                        <input type="text" id="type" [(ngModel)]="newProduct.type">
+                    </div>
+
+                    <div class="input-container">
+                        <label for="iamge">Imagem:</label>
+                        <input type="text" id="image" [(ngModel)]="newProduct.image">
+                    </div>
+
+                    <div class="button-container">
+                        <button (click)="saveEdit()">Guardar mudanças</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
