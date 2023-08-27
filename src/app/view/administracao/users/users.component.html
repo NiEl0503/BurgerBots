@@ -19,10 +19,30 @@
                             </button>
                     </li>
                 </ul>
-                <p class="add">+ Adicionar funcionário</p>
-                <button class="add-contact">
-                    <img src="../../../../assets/contato.png" alt="imagem adicionar contato">
-                </button>
+                <p class="add">
+                    + Adicionar funcionário
+                    <button class="add-contact" (click)="adicionarUsuario()">
+                        <img src="../../../../assets/contato.png" alt="imagem adicionar contato">
+                    </button>
+                </p>
+                
+                <div class="new-user-form">
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" [(ngModel)]="newUser.email">
+                    </div>
+                    
+                    <div>
+                        <label for="password">Senha:</label>
+                        <input type="password" id="password" [(ngModel)]="newUser.password">
+                    </div>
+                    
+                    <div>
+                        <label for="role">Rol:</label>
+                        <input type="text" id="role" [(ngModel)]="newUser.role">
+                    </div>
+                </div>
+                
             </div>
         </div>
     </section>

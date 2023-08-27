@@ -9,22 +9,43 @@ import { UsersService } from '../../../services/users/users.service';
   styleUrls: ['./users.component.css']
 })
 
-  export class UsersComponent implements OnInit {
-    users: any[] = [];
-  
-    constructor(
-      private userService: UsersService,
-      private localStorageService: LocalStorageService,
-    ) { }
+export class UsersComponent implements OnInit {
+  users: any[] = [];
+  newUser: any = { email: '', password: '', role: '' };
 
-    ngOnInit() {
-      const accessToken = this.localStorageService.getItem('accessToken');
-      if (accessToken) {
-        const headers = new HttpHeaders().set('Authorization', `Bearer ${accessToken}`);
-        this.userService.getusers().subscribe((data: any) => {
-          this.users = data;
-          console.log(this.users);
-        });
-      }
+  constructor(
+    private userService: UsersService,
+    private localStorageService: LocalStorageService,
+  ) { }
+
+  ngOnInit() {
+    this.loadUsers();
+  }
+
+  loadUsers() {
+    const accessToken = this.localStorageService.getItem('accessToken');
+    if (accessToken) {
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${accessToken}`);
+      this.userService.getusers().subscribe((data: any) => {
+        this.users = data;
+        console.log(this.users);
+      });
     }
   }
+
+  deletarUsuario(user: any) {
+    const confirmarExclusao= confirm(`Tem certeza de que deseja excluir o usuário ${user.email}?`);
+    if (confirmarExclusao) {
+      this.userService.deleteUser(user.id).subscribe(() => {
+        this.loadUsers();
+      });
+    }
+  }
+
+  adicionarUsuario() {
+    this.userService.addUser(this.newUser).subscribe(() => {
+      this.loadUsers();
+      this.newUser = { email: '', password: '', role: '' };      
+    });
+  }
+}
