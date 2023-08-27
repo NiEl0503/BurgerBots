@@ -29,6 +29,11 @@ export class UsersService {
   addUser(newUser: any) {
     return this.http.post(`${this.URL}/users`, newUser, this.OPTIONS);
   }
+
+  updateUser(user: any) {
+    return this.http.put(`${this.URL}/users/${user.id}`, user, this.OPTIONS);
+  }
+  
 }
 
 
