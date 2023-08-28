@@ -13,13 +13,7 @@ export class ProdutosComponent implements OnInit {
   newProduct: any = { name: '', price: '', type: '', image: '' };
   editMode = false;
 
-  constructor(private productService: ProductService, private localStorageService: LocalStorageService){}
-
-  // ngOnInit() {
-  //   this.productService.getProducts().subscribe(products => {
-  //     this.products = products;
-  //   });
-  // }
+  constructor(private productService: ProductService, private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
     this.loadUsers();
@@ -31,16 +25,16 @@ export class ProdutosComponent implements OnInit {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${accessToken}`);
       this.productService.getProducts().subscribe((data: any) => {
         this.products = data;
-        console.log(this.products);
       });
     }
   }
 
-  deleteProduct(user: any) {
-    const confirmarExclusao = confirm(`Tem certeza de que deseja excluir o usuário ${user.email}?`);
+  deleteProduct(product: any) {
+    const confirmarExclusao = confirm(`Tem certeza de que deseja excluir o produto ${product.name}?`);
     if (confirmarExclusao) {
-      this.productService.deleteProduct(user.id).subscribe(
+      this.productService.deleteProduct(product.id).subscribe(
         () => {
+
           this.loadUsers();
         },
         error => {
@@ -49,27 +43,25 @@ export class ProdutosComponent implements OnInit {
       );
     }
   }
-  
 
   addProduct() {
     this.productService.addProduct(this.newProduct).subscribe(() => {
       this.loadUsers();
-      this.newProduct = { name: '', price: '', type: '', image: '' };      
+      this.newProduct = { name: '', price: '', type: '', image: '' };
     });
   }
 
   editProduct(product: any) {
-    console.log('Editing products:', product);
-    const productToEdit = { ...this.products };
-    this.newProduct = productToEdit;
+    console.log('Editing product:', product);
+    this.newProduct = { ...product };
     this.editMode = true;
   }
-  
+
   saveEdit() {
     console.log('Saving edited product:', this.newProduct);
     this.productService.updateProduct(this.newProduct).subscribe(() => {
       this.loadUsers();
-      this.newProduct =  { name: '', price: '', type: '', image: '' };
+      this.newProduct = { name: '', price: '', type: '', image: '' };
       this.editMode = false;
     });
   }

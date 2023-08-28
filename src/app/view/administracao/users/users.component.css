@@ -62,7 +62,8 @@ button.add-contact {
   justify-content: center;
   align-items: center;
   width: 30px;
-  margin-left: 140px;
+  margin-left: 180px;
+  background-color: var(--firstColor);
 }
 
 
@@ -92,8 +93,13 @@ button.img {
   margin-bottom: 1em;
 }
 
-.button-container {
+.button-container button{
   margin-top: 1em;
+  border-radius: 5px;
+  width: 200px;
+  background-color: var(--firstColor);
+  color: var(--letterColor);
+  margin-bottom: 1em;
 }
 
 @media screen and (min-width: 600px) {

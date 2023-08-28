@@ -5,6 +5,7 @@
     justify-content: center;
     margin-top: 4em;
     color: var(--letterColor);
+    margin-bottom: 4em;
 }
 
 .conteiner-products {
@@ -88,22 +89,51 @@ li p {
     margin-bottom: .2em;
   }
 
-  button.add-contact {
+  .add-product {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 30px;
-    margin-left: 140px;
-    margin-top: 2em;
+    height: 30px;
+    margin-left: 230px;
+    background-color: var(--firstColor);
+  }
+
+  .add-product img {
+    width: 30px;
+    height: 30px;
   }
 
   .add {
-    text-align: center;
+  text-align: center;
   background-color: var(--letterColor);
   margin-bottom: .5em;
   color: var(--firstColor);
   font-weight: bold;
   margin-top: 1em;
+  }
+
+  .new-user-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0.3em;
+  }
+
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+  }
+  
+  .button-container button{
+    margin-top: 1em;
+    border-radius: 5px;
+    width: 200px;
+    background-color: var(--firstColor);
+    color: var(--letterColor);
+    margin-bottom: .5em;
   }
 
   @media screen and (min-width: 600px) {

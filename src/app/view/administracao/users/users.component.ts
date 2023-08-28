@@ -29,7 +29,6 @@ export class UsersComponent implements OnInit {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${accessToken}`);
       this.userService.getusers().subscribe((data: any) => {
         this.users = data;
-        console.log(this.users);
       });
     }
   }

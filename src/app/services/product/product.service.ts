@@ -30,7 +30,7 @@ export class ProductService {
     return this.http.post(`${this.URL}/products`, newPdoduct, this.OPTIONS);
   }
 
-  updateProduct(product: any) {
-    return this.http.put(`${this.URL}/products/${product.id}`, product, this.OPTIONS);
+  updateProduct(productData: any) {
+    return this.http.patch(`${this.URL}/products/${productData.id}`, productData, this.OPTIONS);
   }
 }
