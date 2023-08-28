@@ -31,7 +31,6 @@ export class ProductsComponent implements OnInit {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${accessToken}`);
       this.productService.getProducts().subscribe(data => {
         this.products = data;
-        console.log(this.products);
       });
     }
 

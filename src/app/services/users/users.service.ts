@@ -31,7 +31,7 @@ export class UsersService {
   }
 
   updateUser(user: any) {
-    return this.http.put(`${this.URL}/users/${user.id}`, user, this.OPTIONS);
+    return this.http.patch(`${this.URL}/users/${user.id}`, user, this.OPTIONS);
   }
   
 }

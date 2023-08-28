@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ProductService } from '../../services/product/product.service';
+import { LocalStorageService } from '../../services/localStorage/local-storage.service';
 
 @Component({
   selector: 'app-administracao',
@@ -13,17 +14,17 @@ export class AdministracaoComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private productService: ProductService // Inyecta ProductService en el constructor
-  ) {}
+    private productService: ProductService,
+    private localStorageService: LocalStorageService
+  ) { }
 
   ngOnInit() {
-    this.http.get<any[]>('http://localhost:8080/users')
-      .subscribe(users => {
-        this.users = users;
+    const accessToken = this.localStorageService.getItem('accessToken');
+    if (accessToken) {
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${accessToken}`);
+      this.productService.getProducts().subscribe((data: any) => {
+        this.users = data;
       });
-
-    this.productService.getProducts().subscribe(products => {
-      this.products = products;
-    });
+    }
   }
 }
