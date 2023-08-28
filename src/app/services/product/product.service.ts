@@ -8,7 +8,7 @@ import { LocalStorageService } from '../localStorage/local-storage.service';
 })
 export class ProductService {
   private readonly URL: string = "http://localhost:8080";
-    private readonly ACCESSTOKEN = localStorage.getItem('accessToken');
+  private readonly ACCESSTOKEN = localStorage.getItem('accessToken');
   private readonly HEADERS = new HttpHeaders().set('Authorization', `Bearer ${this.ACCESSTOKEN}`);
   private readonly OPTIONS = { headers: this.HEADERS };
 
@@ -25,7 +25,7 @@ export class ProductService {
   deleteProduct(productId: number) {
     return this.http.delete(`${this.URL}/products/${productId}`, this.OPTIONS);
   }
-  
+
   addProduct(newPdoduct: any) {
     return this.http.post(`${this.URL}/products`, newPdoduct, this.OPTIONS);
   }
