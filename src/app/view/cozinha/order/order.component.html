@@ -15,8 +15,8 @@
       </ul>
     </div>
     <div class="conteiner-order__footer">
-      <p *ngIf="order.status === 'pending'" class="time">Tempo transcorrido: {{ order.tiempoPedido }}</p>
-      <p *ngIf="order.status === 'delivered'">Tempo total: {{ order.tiempoPedidoFinal }}</p>
+      <p *ngIf="order.status === 'pending'">{{ order.tiempoPedido }}</p>
+      <p *ngIf="order.status === 'delivered'">{{ order.tiempoPedidoFinal }}</p>
       <p class="status">{{ order.currentStatus }}</p>
       <div>
         <select name="statu" id="stat" [(ngModel)]="order.status">

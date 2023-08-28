@@ -26,19 +26,15 @@ export class OrderComponent implements OnInit {
 
     this.orderService.getOrders().subscribe(data => {
       data.map(pedido => pedido.currentStatus = pedido.status)
-      console.log(data);
       this.orders = data;
-      console.log(this.orders);
-
     });
   }
 
   updateOrder(pedido: any) {
-   this.orderService.updateOrder(pedido).subscribe(data => {
-    console.log(data);
-    this.orders = [];
-    this.loadOrders();
-   })
+    this.orderService.updateOrder(pedido).subscribe(data => {
+      this.orders = [];
+      this.loadOrders();
+    })
   }
 
   updateElapsedTime() {
@@ -50,24 +46,23 @@ export class OrderComponent implements OnInit {
         const seconds = Math.floor(elapsedTime / 1000);
         const minutes = Math.floor(seconds / 60);
         const hours = Math.floor(minutes / 60);
-  
         const elapsedTimeString = `${hours}h ${minutes % 60}m ${seconds % 60}s`;
         order.tiempoPedido = elapsedTimeString;
       } else if (order.status === 'delivered' && !order.tiempoPedidoFinal) {
-        const orderTime = new Date(order.dataEntry).getTime();
+              
+        const orderTime1 = new Date(order.dataEntry).getTime();
         const deliveredTime = new Date(order.dataDelivered).getTime();
-        const elapsedTime = deliveredTime - orderTime;
-        const seconds = Math.floor(elapsedTime / 1000);
+        const elapsedTime1 = deliveredTime - orderTime1;
+        const seconds = Math.floor(elapsedTime1 / 1000);
         const minutes = Math.floor(seconds / 60);
         const hours = Math.floor(minutes / 60);
-  
-        const elapsedTimeString = `${hours}h ${minutes % 60}m ${seconds % 60}s`;
-        order.tiempoPedidoFinal = elapsedTimeString;
+        const elapsedTimeString1 = `${hours}h ${minutes % 60}m ${seconds % 60}s`;
+        order.tiempoPedidoFinal = elapsedTimeString1;
         this.stopElapsedTimeUpdate();
       }
     });
   }
-  
+
   ngOnDestroy() {
     this.stopElapsedTimeUpdate();
   }
