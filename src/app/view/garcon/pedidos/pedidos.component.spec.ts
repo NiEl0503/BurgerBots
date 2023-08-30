@@ -8,6 +8,8 @@ describe('PedidosComponent', () => {
   let fixture: ComponentFixture<PedidosComponent>;
 
   beforeEach(() => {
+    localStorage.clear();
+
     TestBed.configureTestingModule({
       declarations: [PedidosComponent],
       imports: [FormsModule, HttpClientTestingModule]
@@ -31,7 +33,7 @@ describe('PedidosComponent', () => {
   });
 
   it('should move selected pedidos to pedidosEntregues', () => {
-    component.pedidosProntos = [
+        component.pedidosProntos = [
       { id: 1, client: 'Client 1', mesa: 1, selected: true },
       { id: 2, client: 'Client 2', mesa: 2, selected: false }
     ];
