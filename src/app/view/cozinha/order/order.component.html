@@ -15,11 +15,11 @@
       </ul>
     </div>
     <div class="conteiner-order__footer">
-      <p *ngIf="order.status === 'pending'">{{ order.tiempoPedido }}</p>
-      <p *ngIf="order.status === 'delivered'">{{ order.tiempoPedidoFinal }}</p>
+      <p *ngIf="order.status === 'pending'" class="time">Tempo transcorrido: {{ order.tiempoPedido }}</p>
+      <p *ngIf="order.status === 'delivered'">Tempo total: {{ order.tiempoPedido }}</p>
       <p class="status">{{ order.currentStatus }}</p>
       <div>
-        <select name="statu" id="stat" [(ngModel)]="order.status">
+        <select name="statu" id="stat" [(ngModel)]="order.status" >
           <option value="pending">Pendente</option>
           <option value="delivered">Entregue</option>
         </select>
@@ -30,3 +30,5 @@
     </div>
   </div>
 </section>
+
+     
