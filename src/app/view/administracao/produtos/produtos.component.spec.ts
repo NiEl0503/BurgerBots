@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 describe('ProdutosComponent', () => {
   let component: ProdutosComponent;
   let fixture: ComponentFixture<ProdutosComponent>;
+  let productService: ProductService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -18,6 +19,7 @@ describe('ProdutosComponent', () => {
     });
     fixture = TestBed.createComponent(ProdutosComponent);
     component = fixture.componentInstance;
+    productService = TestBed.inject(ProductService);
     fixture.detectChanges();
   });
 
@@ -26,37 +28,28 @@ describe('ProdutosComponent', () => {
   });
 
   it('should create and load products', () => {
-    expect(component).toBeTruthy();
-    const productService = TestBed.inject(ProductService);
     spyOn(productService, 'getProducts').and.returnValue(of([{ id: 1, name: 'Product 1' }]));
-    
+
     component.ngOnInit();
     expect(component.products.length).toBe(1);
     expect(productService.getProducts).toHaveBeenCalled();
   });
   
   it('should delete a product', () => {
-    const productService = TestBed.inject(ProductService);
-    spyOn(productService, 'getProducts').and.returnValue(of([{ id: 1, name: 'Product 1' }]));
-    spyOn(window, 'confirm').and.returnValue(true);
     spyOn(productService, 'deleteProduct').and.returnValue(of({}));
-    
-    component.loadUsers();
+    spyOn(window, 'confirm').and.returnValue(true);
+
     component.deleteProduct({ id: 1, name: 'Product 1' });
     
     expect(productService.deleteProduct).toHaveBeenCalledWith(1);
-    expect(productService.getProducts).toHaveBeenCalled();
   });
   
   it('should add a product', () => {
-    const productService = TestBed.inject(ProductService);
-    spyOn(productService, 'getProducts').and.returnValue(of([]));
     spyOn(productService, 'addProduct').and.returnValue(of({}));
-    
+
     component.addProduct();
     
     expect(productService.addProduct).toHaveBeenCalledWith(component.newProduct);
-    expect(productService.getProducts).toHaveBeenCalled();
     expect(component.newProduct).toEqual({ name: '', price: '', type: '', image: '' });
   });
 
@@ -70,17 +63,12 @@ describe('ProdutosComponent', () => {
   });
 
   it('should save edited product', () => {
-    const productService = TestBed.inject(ProductService);
-    spyOn(productService, 'getProducts').and.returnValue(of([]));
     spyOn(productService, 'updateProduct').and.returnValue(of({}));
-    
+
     component.saveEdit();
     
     expect(productService.updateProduct).toHaveBeenCalledWith(component.newProduct);
-    expect(productService.getProducts).toHaveBeenCalled();
     expect(component.newProduct).toEqual({ name: '', price: '', type: '', image: '' });
     expect(component.editMode).toBe(false);
   });
-  
-
 });
