@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { LoginService } from './login.service';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { of } from 'rxjs';
 
-fdescribe('LoginService', () => {
+describe('LoginService', () => {
   let httpClientSpy: jasmine.SpyObj<HttpClient>;
   let service: LoginService;
 

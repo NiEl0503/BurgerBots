@@ -1,16 +1,20 @@
-// import { TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-// import { OrdenServiceService } from './orden-service.service';
+import { OrderService } from './orden-service.service';
 
-// describe('OrdenServiceService', () => {
-//   let service: OrdenServiceService;
+describe('OrderService', () => {
+  let service: OrderService;
 
-//   beforeEach(() => {
-//     TestBed.configureTestingModule({});
-//     service = TestBed.inject(OrdenServiceService);
-//   });
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+    });
+    service = TestBed.inject(OrderService);
+  });
 
-//   it('should be created', () => {
-//     expect(service).toBeTruthy();
-//   });
-// });
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});
+
