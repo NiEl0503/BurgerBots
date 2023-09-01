@@ -28,11 +28,11 @@ describe('ProdutosComponent', () => {
   });
 
   it('should create and load products', () => {
-    spyOn(productService, 'getProducts').and.returnValue(of([{ id: 1, name: 'Product 1' }]));
+    const productSpy = spyOn(productService, 'getProducts').and.returnValue(of([{ id: 1, name: 'Product 1' }]));
 
     component.ngOnInit();
     expect(component.products.length).toBe(1);
-    expect(productService.getProducts).toHaveBeenCalled();
+    expect(productSpy).toHaveBeenCalled();
   });
   
   it('should delete a product', () => {

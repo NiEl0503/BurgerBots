@@ -24,6 +24,5 @@ export class LoginComponent {
   onLoginButtonClick() {
    let response = this.service.executeLogin(this.email, this.senha)
    console.log(response);
-   
   }
 }
