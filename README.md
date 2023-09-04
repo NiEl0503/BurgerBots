@@ -9,7 +9,7 @@
   
 
 ## 1. Prefácio 📋
-[Angular](https://angular.io/) é uma estrutura JavaScript usada em desenvolvimento em todo o mundo e há uma razão para isso.
+[Angular](https://angular.io/) é uma _framework_ de JavaScript usada em desenvolvimento em todo o mundo e há uma razão para isso.
 No contexto do navegador, [_manter a interface sincronizada com o estado é difícil_](https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445).
 Ao escolher uma _framework_ para nossa interface, contamos com uma série de implementações e convenções _testadas_ e _documentadas_ para resolver um problema comum a toda interface web. Isso nos permite focar melhor (gastar mais tempo) nos recursos _específicos_ de nosso aplicativo.
 
