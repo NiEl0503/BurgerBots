@@ -2,16 +2,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LocalStorageService } from '../localStorage/local-storage.service';
+import { Router } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
   private readonly URL: string = "http://localhost:8080";
+  private readonly ACCESSTOKEN = localStorage.getItem('accessToken');
 
   constructor(
     private readonly http: HttpClient,
-    private readonly localStorageService: LocalStorageService
+    private readonly localStorageService: LocalStorageService, private readonly router: Router
   ) {}
 
   private getOptions(): { headers: HttpHeaders } {
@@ -21,6 +24,10 @@ export class OrderService {
   }
 
   getOrders(): Observable<any[]> {
+    if (this.ACCESSTOKEN === null) {
+      this.router.navigate(["/"])
+      return new Observable<any>;
+    }
     const options = this.getOptions();
     return this.http.get<any[]>(`${this.URL}/orders`, options);
   }
