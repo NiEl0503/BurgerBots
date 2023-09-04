@@ -3,14 +3,15 @@
 * [1. Prefácio](#1-prefácio)
 * [2. Resumo do projeto](#2-resumo-do-projeto)
 * [3. Histórias de usuário](#3-histórias-de-usuario)
-* [4. Protótipos](#4-Protótipos)
+* [4. Protótipos](#4-protótipos)
 * [5. Tecnologias Utilizadas](#5-tecnologias-utilizadas)
-* [6. Desenvolvedora](#6-Desenvolvedora)
+* [6. Desenvolvedora](#6-desenvolvedora)
+  
 
 ## 1. Prefácio 📋
-[Angular](https://angular.io/) é um _frameworks_ e _bibliotecas_ de JavaScript usado na área de desenvolvimento ao redor do mundo e existe uma razão para isso.
+[Angular](https://angular.io/) é uma estrutura JavaScript usada em desenvolvimento em todo o mundo e há uma razão para isso.
 No contexto do navegador, [_manter a interface sincronizada com o estado é difícil_](https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445).
-Ao eleger um _framework_ para nossa interface, nos apoiamos em uma série de convenções e implementações _testadas_ e _documentadas_ para resolver um problema comum a toda interface web. Isto nos permite concentrar melhor (dedicar mais tempo) nas características _específicas_ de nossa aplicação.
+Ao escolher uma _framework_ para nossa interface, contamos com uma série de implementações e convenções _testadas_ e _documentadas_ para resolver um problema comum a toda interface web. Isso nos permite focar melhor (gastar mais tempo) nos recursos _específicos_ de nosso aplicativo.
 
 
 ## 2. Resumo do projeto 📝
