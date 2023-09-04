@@ -16,17 +16,13 @@ export class ProdutosComponent implements OnInit {
   constructor(private productService: ProductService, private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
-    this.loadUsers();
+    this.loadProduct();
   }
 
-  loadUsers() {
-    const accessToken = this.localStorageService.getItem('accessToken');
-    if (accessToken) {
-      const headers = new HttpHeaders().set('Authorization', `Bearer ${accessToken}`);
+loadProduct() {
       this.productService.getProducts().subscribe((data: any) => {
         this.products = data;
       });
-    }
   }
 
   deleteProduct(product: any) {
@@ -35,7 +31,7 @@ export class ProdutosComponent implements OnInit {
       this.productService.deleteProduct(product.id).subscribe(
         () => {
 
-          this.loadUsers();
+          this.loadProduct();
         },
         error => {
           console.error('Erro ao excluir produto:', error);
@@ -46,7 +42,7 @@ export class ProdutosComponent implements OnInit {
 
   addProduct() {
     this.productService.addProduct(this.newProduct).subscribe(() => {
-      this.loadUsers();
+      this.loadProduct();
       this.newProduct = { name: '', price: '', type: '', image: '' };
     });
   }
@@ -60,7 +56,7 @@ export class ProdutosComponent implements OnInit {
   saveEdit() {
     console.log('Saving edited product:', this.newProduct);
     this.productService.updateProduct(this.newProduct).subscribe(() => {
-      this.loadUsers();
+      this.loadProduct();
       this.newProduct = { name: '', price: '', type: '', image: '' };
       this.editMode = false;
     });

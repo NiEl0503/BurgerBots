@@ -24,13 +24,9 @@ export class UsersComponent implements OnInit {
   }
 
   loadUsers() {
-    const accessToken = this.localStorageService.getItem('accessToken');
-    if (accessToken) {
-      const headers = new HttpHeaders().set('Authorization', `Bearer ${accessToken}`);
       this.userService.getusers().subscribe((data: any) => {
         this.users = data;
       });
-    }
   }
 
   deleteUsers(user: any) {

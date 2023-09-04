@@ -26,13 +26,10 @@ export class ProductsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const accessToken = this.localStorageService.getItem('accessToken');
-    if (accessToken) {
-      const headers = new HttpHeaders().set('Authorization', `Bearer ${accessToken}`);
       this.productService.getProducts().subscribe(data => {
         this.products = data;
       });
-    }
+  
 
     this.productsCommunicationService.showBreakfast$.subscribe(value => {
       this.showBreakfastContainer = value;
