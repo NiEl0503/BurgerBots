@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product/product.service';
 import { LocalStorageService } from '../../../services/localStorage/local-storage.service';
-import { HttpHeaders } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-produtos',

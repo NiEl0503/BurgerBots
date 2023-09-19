@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product/product.service';
-import { HttpHeaders } from '@angular/common/http';
+
 import { LocalStorageService } from '../../../services/localStorage/local-storage.service';
 import { ProductsCommunicationService } from '../../../services/products-communication/products-communication.service';
 
