@@ -15,7 +15,7 @@ export class LoginService {
 
   async executeLogin(email: string, senha: string) {
     try {
-      const response: any = await this.http.post('http://burger-queen-api-mock-mauve.vercel.app/login', {
+      const response: any = await this.http.post('https://burger-queen-api-mock-mauve.vercel.app/login', {
         email: email,
         password: senha,
       }).toPromise();

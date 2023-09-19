@@ -47,7 +47,7 @@ export class ProductsCommunicationService {
       status: 'pending',  
     };
   
-    this.http.post<any>('http://burger-queen-api-mock-mauve.vercel.app/orders', pedido, this.OPTIONS)
+    this.http.post<any>('https://burger-queen-api-mock-mauve.vercel.app/orders', pedido, this.OPTIONS)
       .subscribe(
         response => {
           console.log('Pedido enviado para a cozinha:', response);

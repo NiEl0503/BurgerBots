@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class ProductService {
-  private readonly URL: string = "http://burger-queen-api-mock-mauve.vercel.app";
+  private readonly URL: string = "https://burger-queen-api-mock-mauve.vercel.app";
   private readonly ACCESSTOKEN = localStorage.getItem('accessToken');
   private readonly HEADERS = new HttpHeaders().set('Authorization', `Bearer ${this.ACCESSTOKEN}`);
   private readonly OPTIONS = { headers: this.HEADERS };
