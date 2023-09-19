@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpHeaders } from '@angular/common/http';
+
 import { LocalStorageService } from '../../../services/localStorage/local-storage.service';
 import { UsersService } from '../../../services/users/users.service';
 

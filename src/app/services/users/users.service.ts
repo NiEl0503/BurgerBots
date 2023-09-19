@@ -7,7 +7,7 @@ import { LocalStorageService } from '../localStorage/local-storage.service';
   providedIn: 'root'
 })
 export class UsersService {
-  private readonly URL: string = "http://localhost:8080";
+  private readonly URL: string = "http://burger-queen-api-mock-mauve.vercel.app";
     private readonly ACCESSTOKEN = localStorage.getItem('accessToken');
   private readonly HEADERS = new HttpHeaders().set('Authorization', `Bearer ${this.ACCESSTOKEN}`);
   private readonly OPTIONS = { headers: this.HEADERS };

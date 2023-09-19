@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class OrderService {
-  private readonly URL: string = "http://localhost:8080";
+  private readonly URL: string = "http://burger-queen-api-mock-mauve.vercel.app";
   private readonly ACCESSTOKEN = localStorage.getItem('accessToken');
 
   constructor(
