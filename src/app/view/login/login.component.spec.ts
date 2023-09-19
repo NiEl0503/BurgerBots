@@ -27,10 +27,4 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-// it('should return destination route', () => {
-// const loginButton = fixture.debugElement.nativeElement.querySelector('#login-button')
-
-// loginButton.click()
-
-// });
 });
