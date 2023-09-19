@@ -19,16 +19,7 @@ describe('GarconComponent', () => {
     fixture.detectChanges();
   });
 
-  //  it('should pass customerName and customerTable to products', () => {
-  //   component.name = 'John';
-  //   component.table = '2';
-  //   fixture.detectChanges();
-
-  //   const productsComponent = fixture.nativeElement.querySelector('app-products');
-  //   expect(productsComponent.customerName).toBe('John');
-  //   expect(productsComponent.customerTable).toBe('2');
-  // });
-
+ 
   it('should call showBreakfast when "Café da Manhã" button is clicked', () => {
     spyOn(component, 'showBreakfast');
     const breakfastButton = fixture.nativeElement.querySelector('.submit:nth-child(1)');
